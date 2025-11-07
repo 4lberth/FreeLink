@@ -1,0 +1,15 @@
+E:\PROYECTOS\FreeLink\FreeLink\FreeLink.Infrastructure\obj\Debug\net9.0\FreeLink.Infrastructure.csproj.AssemblyReference.cache
+E:\PROYECTOS\FreeLink\FreeLink\FreeLink.Infrastructure\obj\Debug\net9.0\FreeLink.Infrastructure.GeneratedMSBuildEditorConfig.editorconfig
+E:\PROYECTOS\FreeLink\FreeLink\FreeLink.Infrastructure\obj\Debug\net9.0\FreeLink.Infrastructure.AssemblyInfoInputs.cache
+E:\PROYECTOS\FreeLink\FreeLink\FreeLink.Infrastructure\obj\Debug\net9.0\FreeLink.Infrastructure.AssemblyInfo.cs
+E:\PROYECTOS\FreeLink\FreeLink\FreeLink.Infrastructure\obj\Debug\net9.0\FreeLink.Infrastructure.csproj.CoreCompileInputs.cache
+E:\PROYECTOS\FreeLink\FreeLink\FreeLink.Infrastructure\obj\Debug\net9.0\FreeLink.Infrastructure.sourcelink.json
+E:\PROYECTOS\FreeLink\FreeLink\FreeLink.Infrastructure\bin\Debug\net9.0\FreeLink.Infrastructure.deps.json
+E:\PROYECTOS\FreeLink\FreeLink\FreeLink.Infrastructure\bin\Debug\net9.0\FreeLink.Infrastructure.runtimeconfig.json
+E:\PROYECTOS\FreeLink\FreeLink\FreeLink.Infrastructure\bin\Debug\net9.0\FreeLink.Infrastructure.dll
+E:\PROYECTOS\FreeLink\FreeLink\FreeLink.Infrastructure\bin\Debug\net9.0\FreeLink.Infrastructure.pdb
+E:\PROYECTOS\FreeLink\FreeLink\FreeLink.Infrastructure\obj\Debug\net9.0\FreeLink.Infrastructure.dll
+E:\PROYECTOS\FreeLink\FreeLink\FreeLink.Infrastructure\obj\Debug\net9.0\refint\FreeLink.Infrastructure.dll
+E:\PROYECTOS\FreeLink\FreeLink\FreeLink.Infrastructure\obj\Debug\net9.0\FreeLink.Infrastructure.pdb
+E:\PROYECTOS\FreeLink\FreeLink\FreeLink.Infrastructure\obj\Debug\net9.0\FreeLink.Infrastructure.genruntimeconfig.cache
+E:\PROYECTOS\FreeLink\FreeLink\FreeLink.Infrastructure\obj\Debug\net9.0\ref\FreeLink.Infrastructure.dll

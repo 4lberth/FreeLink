@@ -1,0 +1,12 @@
+E:\PROYECTOS\FreeLink\FreeLink\FreeLink.Application\bin\Debug\net9.0\FreeLink.Application.deps.json
+E:\PROYECTOS\FreeLink\FreeLink\FreeLink.Application\bin\Debug\net9.0\FreeLink.Application.dll
+E:\PROYECTOS\FreeLink\FreeLink\FreeLink.Application\bin\Debug\net9.0\FreeLink.Application.pdb
+E:\PROYECTOS\FreeLink\FreeLink\FreeLink.Application\obj\Debug\net9.0\FreeLink.Application.GeneratedMSBuildEditorConfig.editorconfig
+E:\PROYECTOS\FreeLink\FreeLink\FreeLink.Application\obj\Debug\net9.0\FreeLink.Application.AssemblyInfoInputs.cache
+E:\PROYECTOS\FreeLink\FreeLink\FreeLink.Application\obj\Debug\net9.0\FreeLink.Application.AssemblyInfo.cs
+E:\PROYECTOS\FreeLink\FreeLink\FreeLink.Application\obj\Debug\net9.0\FreeLink.Application.csproj.CoreCompileInputs.cache
+E:\PROYECTOS\FreeLink\FreeLink\FreeLink.Application\obj\Debug\net9.0\FreeLink.Application.sourcelink.json
+E:\PROYECTOS\FreeLink\FreeLink\FreeLink.Application\obj\Debug\net9.0\FreeLink.Application.dll
+E:\PROYECTOS\FreeLink\FreeLink\FreeLink.Application\obj\Debug\net9.0\refint\FreeLink.Application.dll
+E:\PROYECTOS\FreeLink\FreeLink\FreeLink.Application\obj\Debug\net9.0\FreeLink.Application.pdb
+E:\PROYECTOS\FreeLink\FreeLink\FreeLink.Application\obj\Debug\net9.0\ref\FreeLink.Application.dll

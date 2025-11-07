@@ -1,0 +1,23 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v9.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v9.0": {
+      "FreeLink.Application/1.0.0": {
+        "runtime": {
+          "FreeLink.Application.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "FreeLink.Application/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}
