@@ -18,7 +18,7 @@ public class JwtTokenGenerator : IJwtTokenGenerator
 
     public string GenerateToken(int userId, string email, string userType)
     {
-        var jwtKey = _configuration["Jwt:Key"] ?? "your-super-secret-key-at-least-32-characters-long!";
+        var jwtKey = _configuration["Jwt:SecretKey"];        
         var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(jwtKey));
         var creds = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);
 
