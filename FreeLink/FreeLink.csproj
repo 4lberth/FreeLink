@@ -17,10 +17,7 @@
     </ItemGroup>
 
     <ItemGroup>
-      <Folder Include="Controllers\" />
-    </ItemGroup>
-
-    <ItemGroup>
+      <ProjectReference Include="..\FreeLink.Application\FreeLink.Application.csproj" />
       <ProjectReference Include="..\FreeLink.Infrastructure\FreeLink.Infrastructure.csproj" />
     </ItemGroup>
 

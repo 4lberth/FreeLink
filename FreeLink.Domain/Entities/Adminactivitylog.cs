@@ -1,7 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using FreeLink.Domain.Entities;
 
-namespace FreeLink.Infrastructure;
+namespace FreeLink.Domain.Entities; 
 
 public partial class Adminactivitylog
 {

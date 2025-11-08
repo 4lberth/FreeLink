@@ -142,3 +142,12 @@ E:\PROYECTOS\FreeLink\FreeLink\FreeLink\obj\Debug\net9.0\refint\FreeLink.dll
 E:\PROYECTOS\FreeLink\FreeLink\FreeLink\obj\Debug\net9.0\FreeLink.pdb
 E:\PROYECTOS\FreeLink\FreeLink\FreeLink\obj\Debug\net9.0\FreeLink.genruntimeconfig.cache
 E:\PROYECTOS\FreeLink\FreeLink\FreeLink\obj\Debug\net9.0\ref\FreeLink.dll
+E:\PROYECTOS\FreeLink\FreeLink\FreeLink\bin\Debug\net9.0\FreeLink.Domain.dll
+E:\PROYECTOS\FreeLink\FreeLink\FreeLink\bin\Debug\net9.0\FreeLink.Domain.pdb
+E:\PROYECTOS\FreeLink\FreeLink\FreeLink\bin\Debug\net9.0\AutoMapper.dll
+E:\PROYECTOS\FreeLink\FreeLink\FreeLink\bin\Debug\net9.0\BCrypt.Net-Next.dll
+E:\PROYECTOS\FreeLink\FreeLink\FreeLink\bin\Debug\net9.0\MediatR.dll
+E:\PROYECTOS\FreeLink\FreeLink\FreeLink\bin\Debug\net9.0\MediatR.Contracts.dll
+E:\PROYECTOS\FreeLink\FreeLink\FreeLink\bin\Debug\net9.0\MediatR.Extensions.Microsoft.DependencyInjection.dll
+E:\PROYECTOS\FreeLink\FreeLink\FreeLink\bin\Debug\net9.0\FreeLink.Application.dll
+E:\PROYECTOS\FreeLink\FreeLink\FreeLink\bin\Debug\net9.0\FreeLink.Application.pdb

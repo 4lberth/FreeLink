@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace FreeLink.Infrastructure;
+namespace FreeLink.Domain.Entities; 
 
 public partial class Portfolioitem
 {

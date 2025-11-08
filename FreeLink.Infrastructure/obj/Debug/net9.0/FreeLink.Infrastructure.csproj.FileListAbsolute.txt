@@ -13,3 +13,8 @@ E:\PROYECTOS\FreeLink\FreeLink\FreeLink.Infrastructure\obj\Debug\net9.0\refint\F
 E:\PROYECTOS\FreeLink\FreeLink\FreeLink.Infrastructure\obj\Debug\net9.0\FreeLink.Infrastructure.pdb
 E:\PROYECTOS\FreeLink\FreeLink\FreeLink.Infrastructure\obj\Debug\net9.0\FreeLink.Infrastructure.genruntimeconfig.cache
 E:\PROYECTOS\FreeLink\FreeLink\FreeLink.Infrastructure\obj\Debug\net9.0\ref\FreeLink.Infrastructure.dll
+E:\PROYECTOS\FreeLink\FreeLink\FreeLink.Infrastructure\bin\Debug\net9.0\FreeLink.Domain.dll
+E:\PROYECTOS\FreeLink\FreeLink\FreeLink.Infrastructure\bin\Debug\net9.0\FreeLink.Domain.pdb
+E:\PROYECTOS\FreeLink\FreeLink\FreeLink.Infrastructure\obj\Debug\net9.0\FreeLink.681A9FC0.Up2Date
+E:\PROYECTOS\FreeLink\FreeLink\FreeLink.Infrastructure\bin\Debug\net9.0\FreeLink.Application.dll
+E:\PROYECTOS\FreeLink\FreeLink\FreeLink.Infrastructure\bin\Debug\net9.0\FreeLink.Application.pdb

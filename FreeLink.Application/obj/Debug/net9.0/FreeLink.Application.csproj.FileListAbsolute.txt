@@ -10,3 +10,7 @@ E:\PROYECTOS\FreeLink\FreeLink\FreeLink.Application\obj\Debug\net9.0\FreeLink.Ap
 E:\PROYECTOS\FreeLink\FreeLink\FreeLink.Application\obj\Debug\net9.0\refint\FreeLink.Application.dll
 E:\PROYECTOS\FreeLink\FreeLink\FreeLink.Application\obj\Debug\net9.0\FreeLink.Application.pdb
 E:\PROYECTOS\FreeLink\FreeLink\FreeLink.Application\obj\Debug\net9.0\ref\FreeLink.Application.dll
+E:\PROYECTOS\FreeLink\FreeLink\FreeLink.Application\obj\Debug\net9.0\FreeLink.Application.csproj.AssemblyReference.cache
+E:\PROYECTOS\FreeLink\FreeLink\FreeLink.Application\bin\Debug\net9.0\FreeLink.Domain.dll
+E:\PROYECTOS\FreeLink\FreeLink\FreeLink.Application\bin\Debug\net9.0\FreeLink.Domain.pdb
+E:\PROYECTOS\FreeLink\FreeLink\FreeLink.Application\obj\Debug\net9.0\FreeLink.AD280200.Up2Date

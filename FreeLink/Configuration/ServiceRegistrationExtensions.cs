@@ -1,4 +1,5 @@
-﻿using FreeLink.Infrastructure.Configuration;
+﻿using FreeLink.Application.Configuration;
+using FreeLink.Infrastructure.Configuration;
 using Microsoft.OpenApi.Models;
 
 namespace FreeLink.Configuration;
@@ -7,6 +8,7 @@ public static class ServiceRegistrationExtensions
 {
     public static IServiceCollection AddApiServices(this IServiceCollection services, IConfiguration configuration)
     {
+        services.AddApplicationServices();
         // Registrar servicios de infraestructura
         services.AddInfrastructureServices(configuration);
         // 1. Habilitar controladores
