@@ -1,1 +1,12 @@
-{"Version":1,"Hash":"HGk+R++9dhbo12LpImx3XlZSBtsq1Z2tBkvgXO1z1nQ=","Source":"FreeLink","BasePath":"_content/FreeLink","Mode":"Default","ManifestType":"Build","ReferencedProjectsConfiguration":[],"DiscoveryPatterns":[],"Assets":[],"Endpoints":[]}
+{
+  "Version": 1,
+  "Hash": "HGk+R++9dhbo12LpImx3XlZSBtsq1Z2tBkvgXO1z1nQ=",
+  "Source": "FreeLink",
+  "BasePath": "_content/FreeLink",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": [],
+  "Endpoints": []
+}

@@ -18,7 +18,7 @@ public class UpdateUserCommandHandler : IRequestHandler<UpdateUserCommand, Updat
         try
         {
             // 1. Buscar usuario
-            var user = await _unitOfWork.Repository<User>().GetById(request.UserId);
+            var user = await _unitOfWork.Repository<Domain.Entities.User>().GetById(request.UserId);
             
             if (user == null)
             {
@@ -33,7 +33,7 @@ public class UpdateUserCommandHandler : IRequestHandler<UpdateUserCommand, Updat
             if (!string.IsNullOrEmpty(request.Email) && request.Email != user.Email)
             {
                 // Verificar que el nuevo email no esté en uso
-                var emailExists = await _unitOfWork.Repository<User>()
+                var emailExists = await _unitOfWork.Repository<Domain.Entities.User>()
                     .AnyAsync(u => u.Email == request.Email && u.UserId != request.UserId);
                 
                 if (emailExists)
@@ -55,7 +55,7 @@ public class UpdateUserCommandHandler : IRequestHandler<UpdateUserCommand, Updat
             }
 
             user.UpdatedAt = DateTime.UtcNow;
-            await _unitOfWork.Repository<User>().Update(user);
+            await _unitOfWork.Repository<Domain.Entities.User>().Update(user);
 
             // 4. Actualizar perfil de usuario si existe
             var userProfile = await _unitOfWork.Repository<Userprofile>()

@@ -17,7 +17,7 @@ public class DeleteUserCommandHandler : IRequestHandler<DeleteUserCommand, Delet
     {
         try
         {
-            var user = await _unitOfWork.Repository<User>().GetById(request.UserId);
+            var user = await _unitOfWork.Repository<Domain.Entities.User>().GetById(request.UserId);
             
             if (user == null)
             {
@@ -32,7 +32,7 @@ public class DeleteUserCommandHandler : IRequestHandler<DeleteUserCommand, Delet
             user.IsActive = false;
             user.UpdatedAt = DateTime.UtcNow;
             
-            await _unitOfWork.Repository<User>().Update(user);
+            await _unitOfWork.Repository<Domain.Entities.User>().Update(user);
             await _unitOfWork.Complete();
 
             return new DeleteUserResponse

@@ -35,7 +35,7 @@ public static class ServiceRegistrationExtensions
                 ValidIssuer = configuration["Jwt:Issuer"],
                 ValidAudience = configuration["Jwt:Audience"],
                 IssuerSigningKey = new SymmetricSecurityKey(
-                    Encoding.UTF8.GetBytes(configuration["Jwt:SecretKey"]) 
+                    Encoding.UTF8.GetBytes(configuration["Jwt:SecretKey"] ?? string.Empty) 
                 )
             };
         });

@@ -79,7 +79,7 @@ public class CreateReviewCommandHandler : IRequestHandler<CreateReviewCommand, C
                 : 0.0;
 
             // 6. Si el usuario calificado es un Freelancer, actualizar su perfil
-            var reviewedUser = await _unitOfWork.Repository<User>().GetById(request.ReviewedUserId);
+            var reviewedUser = await _unitOfWork.Repository<Domain.Entities.User>().GetById(request.ReviewedUserId);
             if (reviewedUser != null && reviewedUser.UserType == "Freelancer")
             {
                 var freelancerProfile = await _unitOfWork.Repository<Freelancerprofile>()

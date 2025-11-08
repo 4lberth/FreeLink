@@ -24,3 +24,16 @@ C:\Users\Administrator\FreeLink\FreeLink.Domain\obj\Debug\net9.0\FreeLink.Domain
 C:\Users\Administrator\FreeLink\FreeLink.Domain\obj\Debug\net9.0\refint\FreeLink.Domain.dll
 C:\Users\Administrator\FreeLink\FreeLink.Domain\obj\Debug\net9.0\FreeLink.Domain.pdb
 C:\Users\Administrator\FreeLink\FreeLink.Domain\obj\Debug\net9.0\ref\FreeLink.Domain.dll
+C:\6 ciclo\Desarrollo de Aplicaciones Empresariales Avanzado\RIDER\FreeLink.Domain\bin\Debug\net9.0\FreeLink.Domain.deps.json
+C:\6 ciclo\Desarrollo de Aplicaciones Empresariales Avanzado\RIDER\FreeLink.Domain\bin\Debug\net9.0\FreeLink.Domain.dll
+C:\6 ciclo\Desarrollo de Aplicaciones Empresariales Avanzado\RIDER\FreeLink.Domain\bin\Debug\net9.0\FreeLink.Domain.pdb
+C:\6 ciclo\Desarrollo de Aplicaciones Empresariales Avanzado\RIDER\FreeLink.Domain\obj\Debug\net9.0\FreeLink.Domain.csproj.AssemblyReference.cache
+C:\6 ciclo\Desarrollo de Aplicaciones Empresariales Avanzado\RIDER\FreeLink.Domain\obj\Debug\net9.0\FreeLink.Domain.GeneratedMSBuildEditorConfig.editorconfig
+C:\6 ciclo\Desarrollo de Aplicaciones Empresariales Avanzado\RIDER\FreeLink.Domain\obj\Debug\net9.0\FreeLink.Domain.AssemblyInfoInputs.cache
+C:\6 ciclo\Desarrollo de Aplicaciones Empresariales Avanzado\RIDER\FreeLink.Domain\obj\Debug\net9.0\FreeLink.Domain.AssemblyInfo.cs
+C:\6 ciclo\Desarrollo de Aplicaciones Empresariales Avanzado\RIDER\FreeLink.Domain\obj\Debug\net9.0\FreeLink.Domain.csproj.CoreCompileInputs.cache
+C:\6 ciclo\Desarrollo de Aplicaciones Empresariales Avanzado\RIDER\FreeLink.Domain\obj\Debug\net9.0\FreeLink.Domain.sourcelink.json
+C:\6 ciclo\Desarrollo de Aplicaciones Empresariales Avanzado\RIDER\FreeLink.Domain\obj\Debug\net9.0\FreeLink.Domain.dll
+C:\6 ciclo\Desarrollo de Aplicaciones Empresariales Avanzado\RIDER\FreeLink.Domain\obj\Debug\net9.0\refint\FreeLink.Domain.dll
+C:\6 ciclo\Desarrollo de Aplicaciones Empresariales Avanzado\RIDER\FreeLink.Domain\obj\Debug\net9.0\FreeLink.Domain.pdb
+C:\6 ciclo\Desarrollo de Aplicaciones Empresariales Avanzado\RIDER\FreeLink.Domain\obj\Debug\net9.0\ref\FreeLink.Domain.dll

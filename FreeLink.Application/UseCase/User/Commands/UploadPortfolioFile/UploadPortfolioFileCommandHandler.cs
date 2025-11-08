@@ -22,7 +22,7 @@ public class UploadPortfolioFileCommandHandler : IRequestHandler<UploadPortfolio
         try
         {
             // 1. Verificar que el usuario existe
-            var user = await _unitOfWork.Repository<User>().GetById(request.UserId);
+            var user = await _unitOfWork.Repository<Domain.Entities.User>().GetById(request.UserId);
             if (user == null)
             {
                 return new UploadPortfolioFileResponse

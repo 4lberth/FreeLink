@@ -21,27 +21,27 @@ public class GetAllUsersQueryHandler : IRequestHandler<GetAllUsersQuery, GetAllU
     {
         try
         {
-            IEnumerable<User> users;
+            IEnumerable<Domain.Entities.User> users;
 
             // Si hay filtros, usar GetAsync con predicado
             if (!string.IsNullOrEmpty(request.UserType) && request.IsActive.HasValue)
             {
-                users = await _unitOfWork.Repository<User>()
+                users = await _unitOfWork.Repository<Domain.Entities.User>()
                     .GetAsync(u => u.UserType == request.UserType && u.IsActive == request.IsActive.Value);
             }
             else if (!string.IsNullOrEmpty(request.UserType))
             {
-                users = await _unitOfWork.Repository<User>()
+                users = await _unitOfWork.Repository<Domain.Entities.User>()
                     .GetAsync(u => u.UserType == request.UserType);
             }
             else if (request.IsActive.HasValue)
             {
-                users = await _unitOfWork.Repository<User>()
+                users = await _unitOfWork.Repository<Domain.Entities.User>()
                     .GetAsync(u => u.IsActive == request.IsActive.Value);
             }
             else
             {
-                users = await _unitOfWork.Repository<User>().GetAll();
+                users = await _unitOfWork.Repository<Domain.Entities.User>().GetAll();
             }
 
             var userList = users.ToList();

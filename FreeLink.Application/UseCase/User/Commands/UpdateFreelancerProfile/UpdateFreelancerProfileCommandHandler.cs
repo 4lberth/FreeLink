@@ -18,7 +18,7 @@ public class UpdateFreelancerProfileCommandHandler : IRequestHandler<UpdateFreel
         try
         {
             // 1. Verificar que el usuario existe y es Freelancer
-            var user = await _unitOfWork.Repository<User>().GetById(request.UserId);
+            var user = await _unitOfWork.Repository<Domain.Entities.User>().GetById(request.UserId);
             
             if (user == null)
             {

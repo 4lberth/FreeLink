@@ -19,20 +19,30 @@ if (app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 
-// Configurar archivos estáticos para servir uploads
+
+
+var uploadsPath = Path.Combine(app.Environment.ContentRootPath, "uploads");
+
+// 2. ¡La corrección clave!
+
+if (!Directory.Exists(uploadsPath))
+{
+    Directory.CreateDirectory(uploadsPath);
+}
+
+// Configurar archivos estáticos para servir wwwroot (si existe)
 app.UseStaticFiles();
 
 // Configurar ruta personalizada para uploads
 app.UseStaticFiles(new StaticFileOptions
 {
-    FileProvider = new Microsoft.Extensions.FileProviders.PhysicalFileProvider(
-        Path.Combine(app.Environment.WebRootPath ?? app.Environment.ContentRootPath, "uploads")),
+    // 3. Usar nuestra variable 'uploadsPath' que ya hemos verificado
+    FileProvider = new Microsoft.Extensions.FileProviders.PhysicalFileProvider(uploadsPath),
     RequestPath = "/uploads"
 });
 
-app.UseAuthentication();  // Primero autenticación
-app.UseAuthorization();   // Luego autorización
-
+app.UseAuthentication();  
+app.UseAuthorization();  
 app.MapControllers();
 
 app.Run();
