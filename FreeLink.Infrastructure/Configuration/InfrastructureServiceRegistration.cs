@@ -25,7 +25,8 @@ public static class InfrastructureServiceRegistration
         services.AddScoped(typeof(IRepository<>), typeof(Repository<>));
         services.AddScoped<IUnitOfWork, UnitOfWork>();
         
-        services.AddScoped<IJwtTokenGenerator, JwtTokenGenerator>(); 
+        services.AddScoped<IJwtTokenGenerator, JwtTokenGenerator>();
+        services.AddScoped<IFileStorageService, FileStorageService>(); 
 
         return services;
     }

@@ -19,6 +19,17 @@ if (app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 
+// Configurar archivos estáticos para servir uploads
+app.UseStaticFiles();
+
+// Configurar ruta personalizada para uploads
+app.UseStaticFiles(new StaticFileOptions
+{
+    FileProvider = new Microsoft.Extensions.FileProviders.PhysicalFileProvider(
+        Path.Combine(app.Environment.WebRootPath ?? app.Environment.ContentRootPath, "uploads")),
+    RequestPath = "/uploads"
+});
+
 app.UseAuthentication();  // Primero autenticación
 app.UseAuthorization();   // Luego autorización
 
