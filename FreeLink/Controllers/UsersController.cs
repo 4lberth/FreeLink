@@ -1,4 +1,7 @@
 ﻿using System.Security.Claims;
+using FreeLink.Application.UseCase.User.Commands.UpdateUser;
+using FreeLink.Application.UseCase.User.Commands.UpdateUserProfile;
+using FreeLink.Application.UseCase.User.DTOs;
 using FreeLink.Application.UseCase.User.Queries.GetAllUsers;
 using FreeLink.Application.UseCase.User.Queries.GetUserById;
 using FreeLink.Application.UseCase.User.Queries.GetUserProfile;
@@ -92,6 +95,81 @@ public class UsersController : ControllerBase
         if (!response.Success)
         {
             return NotFound(response);
+        }
+
+        return Ok(response);
+    }
+    
+    [HttpPut("{id}")]
+    public async Task<IActionResult> UpdateUser(int id, [FromBody] UpdateUserRequest request)
+    {
+        // Obtener datos del usuario autenticado desde el token
+        var requestingUserId = User.Claims.FirstOrDefault(c => 
+            c.Type == "userId" || c.Type == ClaimTypes.NameIdentifier)?.Value;
+
+        var requestingUserRole = User.Claims.FirstOrDefault(c => 
+            c.Type == "userType" || c.Type == ClaimTypes.Role)?.Value;
+
+        if (string.IsNullOrEmpty(requestingUserId))
+        {
+            return Unauthorized(new { success = false, message = "Token inválido" });
+        }
+
+        var command = new UpdateUserCommand
+        {
+            UserId = id,
+            Email = request.Email,
+            UserType = request.UserType,
+            IsActive = request.IsActive,
+            IsVerified = request.IsVerified,
+            RequestingUserId = int.Parse(requestingUserId),
+            RequestingUserRole = requestingUserRole ?? string.Empty
+        };
+
+        var response = await _mediator.Send(command);
+
+        if (!response.Success)
+        {
+            return BadRequest(response);
+        }
+
+        return Ok(response);
+    }
+    
+    [HttpPut("{id}/profile")]
+    public async Task<IActionResult> UpdateUserProfile(int id, [FromBody] UpdateUserProfileRequest request)
+    {
+        // Obtener datos del usuario autenticado desde el token
+        var requestingUserId = User.Claims.FirstOrDefault(c => 
+            c.Type == "userId" || c.Type == ClaimTypes.NameIdentifier)?.Value;
+
+        var requestingUserRole = User.Claims.FirstOrDefault(c => 
+            c.Type == "userType" || c.Type == ClaimTypes.Role)?.Value;
+
+        if (string.IsNullOrEmpty(requestingUserId))
+        {
+            return Unauthorized(new { success = false, message = "Token inválido" });
+        }
+
+        var command = new UpdateUserProfileCommand
+        {
+            UserId = id,
+            FirstName = request.FirstName,
+            LastName = request.LastName,
+            PhoneNumber = request.PhoneNumber,
+            Country = request.Country,
+            City = request.City,
+            Bio = request.Bio,
+            ProfilePictureUrl = request.ProfilePictureUrl,
+            RequestingUserId = int.Parse(requestingUserId),
+            RequestingUserRole = requestingUserRole ?? string.Empty
+        };
+
+        var response = await _mediator.Send(command);
+
+        if (!response.Success)
+        {
+            return BadRequest(response);
         }
 
         return Ok(response);
