@@ -1,4 +1,5 @@
 ﻿using System.Security.Claims;
+using FreeLink.Application.UseCase.User.Queries.GetAllUsers;
 using FreeLink.Application.UseCase.User.Queries.GetUserById;
 using FreeLink.Application.UseCase.User.Queries.GetUserProfile;
 using MediatR;
@@ -17,6 +18,32 @@ public class UsersController : ControllerBase
     public UsersController(IMediator mediator)
     {
         _mediator = mediator;
+    }
+    
+    [HttpGet]
+    [Authorize(Policy = "Administrador")]
+    public async Task<IActionResult> GetAllUsers(
+        [FromQuery] string? userType,
+        [FromQuery] bool? isActive,
+        [FromQuery] int pageNumber = 1,
+        [FromQuery] int pageSize = 10)
+    {
+        var query = new GetAllUsersQuery
+        {
+            UserType = userType,
+            IsActive = isActive,
+            PageNumber = pageNumber,
+            PageSize = pageSize
+        };
+
+        var response = await _mediator.Send(query);
+
+        if (!response.Success)
+        {
+            return BadRequest(response);
+        }
+
+        return Ok(response);
     }
     
     [HttpGet("{id}")]
