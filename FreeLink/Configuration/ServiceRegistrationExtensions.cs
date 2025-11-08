@@ -15,6 +15,7 @@ public static class ServiceRegistrationExtensions
         services.AddApplicationServices();
         services.AddInfrastructureServices(configuration); 
         services.AddControllers();
+        services.AddHttpContextAccessor();
 
 
         // Autenticación JWT
