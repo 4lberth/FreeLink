@@ -21,6 +21,7 @@ namespace FreeLink.Application.Services
         // Mensajería con adjuntos
         Task<Projectmessage> SendMessageAsync(int projectId, int senderId, string messageText, IEnumerable<FileUploadRequest> files);
         Task<IEnumerable<Projectmessage>> GetMessagesAsync(int projectId);
+        Task<bool> MarkMessageAsReadAsync(int messageId, int userId);
 
         // Entregables
         Task<Projectdeliverable?> UploadDeliverableAsync(int projectId, int freelancerId, ProjectDeliverableCreateDto dto, IEnumerable<FileUploadRequest> files);

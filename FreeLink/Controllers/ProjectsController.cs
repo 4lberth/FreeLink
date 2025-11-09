@@ -177,6 +177,25 @@ namespace FreeLink.WebAPI.Controllers
             return Ok(messages);
         }
 
+        [HttpPut("messages/{messageId}/read")]
+        [Authorize]
+        public async Task<IActionResult> MarkMessageRead(int messageId)
+        {
+            var userIdStr = User.Claims.FirstOrDefault(c =>
+                c.Type == "userId" || c.Type == ClaimTypes.NameIdentifier || c.Type == "sub")?.Value;
+            if (!int.TryParse(userIdStr, out var userId)) return Unauthorized();
+
+            try
+            {
+                var ok = await svc.MarkMessageAsReadAsync(messageId, userId);
+                return ok ? Ok(new { message = "Mensaje marcado como leído" }) : NotFound();
+            }
+            catch (System.UnauthorizedAccessException)
+            {
+                return Forbid();
+            }
+        }
+
         public class DeliverableUploadRequest
         {
             public string Title { get; set; } = string.Empty;

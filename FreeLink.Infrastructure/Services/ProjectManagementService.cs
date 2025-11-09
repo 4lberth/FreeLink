@@ -252,7 +252,7 @@ namespace FreeLink.Infrastructure.Services
         {
             var project = await _db.Projects.FindAsync(projectId);
             if (project == null) return null;
-            if (project.ClientId != userId && project.AssignedFreelancerId != userId) return null;
+            if (project.ClientId != userId && (!project.AssignedFreelancerId.HasValue || project.AssignedFreelancerId.Value != userId)) return null;
             return project;
         }
 
@@ -315,6 +315,38 @@ namespace FreeLink.Infrastructure.Services
                 .ToListAsync();
         }
 
+        public async Task<bool> MarkMessageAsReadAsync(int messageId, int userId)
+        {
+            var message = await _db.Projectmessages
+                .Include(m => m.Project)
+                .FirstOrDefaultAsync(m => m.MessageId == messageId);
+            if (message == null) return false;
+
+            var project = message.Project ?? await _db.Projects.FindAsync(message.ProjectId);
+            if (project == null) return false;
+            if (project.ClientId != userId && (!project.AssignedFreelancerId.HasValue || project.AssignedFreelancerId.Value != userId))
+                throw new UnauthorizedAccessException("No autorizado para este proyecto.");
+
+            if (message.IsRead != true)
+            {
+                message.IsRead = true;
+                message.ReadAt = DateTime.UtcNow;
+                await _db.SaveChangesAsync();
+
+                _db.Projectactivitylogs.Add(new Projectactivitylog
+                {
+                    ProjectId = message.ProjectId,
+                    UserId = userId,
+                    ActivityType = "Mensaje",
+                    ActivityDescription = "Mensaje marcado como leído",
+                    CreatedAt = DateTime.UtcNow
+                });
+                await _db.SaveChangesAsync();
+            }
+
+            return true;
+        }
+
         // === ENTREGABLES ===
         private const string EntregableEnviado = "Enviado";
 
@@ -322,7 +354,8 @@ namespace FreeLink.Infrastructure.Services
         {
             var project = await _db.Projects.FindAsync(projectId);
             if (project == null) return null;
-            if (project.AssignedFreelancerId != freelancerId) throw new UnauthorizedAccessException("Solo el freelancer asignado puede subir entregables.");
+            if (!project.AssignedFreelancerId.HasValue || project.AssignedFreelancerId.Value != freelancerId)
+                throw new UnauthorizedAccessException("Solo el freelancer asignado puede subir entregables.");
 
             var deliverable = new Projectdeliverable
             {
