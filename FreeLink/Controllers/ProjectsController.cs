@@ -163,6 +163,10 @@ namespace FreeLink.WebAPI.Controllers
             {
                 return Forbid();
             }
+            catch (System.ArgumentException ex)
+            {
+                return BadRequest(new { error = ex.Message });
+            }
         }
 
         [HttpGet("{projectId}/messages")]

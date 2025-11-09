@@ -1,4 +1,5 @@
 using System;
+using System.IO;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -23,6 +24,42 @@ namespace FreeLink.Infrastructure.Services
         private const string StatusEnProceso = "En Proceso";
         private const string StatusCompletado = "Completado";
         private const string StatusCancelado = "Cancelado";
+
+        // Validación de archivos
+        private static readonly HashSet<string> AllowedExtensions = new(StringComparer.OrdinalIgnoreCase)
+        { ".pdf", ".png", ".jpg", ".jpeg", ".docx", ".xlsx", ".zip" };
+        private static readonly HashSet<string> AllowedContentTypes = new(StringComparer.OrdinalIgnoreCase)
+        {
+            "application/pdf",
+            "image/png",
+            "image/jpeg",
+            "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+            "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+            "application/zip"
+        };
+        private const long MaxFileSizeBytes = 10 * 1024 * 1024; // 10 MB
+        private const int MaxFilesPerMessage = 5;
+        private const int MaxFilesPerDeliverable = 5;
+
+        private void ValidateFiles(IEnumerable<FileUploadRequest> files, int maxFiles, string context)
+        {
+            var list = (files ?? Enumerable.Empty<FileUploadRequest>()).ToList();
+            if (list.Count > maxFiles)
+                throw new ArgumentException($"Máximo {maxFiles} archivos permitidos para {context}.");
+
+            foreach (var f in list)
+            {
+                if (f == null) throw new ArgumentException("Archivo inválido.");
+                if (string.IsNullOrWhiteSpace(f.FileName)) throw new ArgumentException("Nombre de archivo requerido.");
+                var ext = Path.GetExtension(f.FileName);
+                if (string.IsNullOrEmpty(ext) || !AllowedExtensions.Contains(ext))
+                    throw new ArgumentException($"Extensión no permitida: {ext}.");
+                if (string.IsNullOrWhiteSpace(f.ContentType) || !AllowedContentTypes.Contains(f.ContentType))
+                    throw new ArgumentException($"Tipo MIME no permitido: {f.ContentType}.");
+                if (f.Length <= 0 || f.Length > MaxFileSizeBytes)
+                    throw new ArgumentException("Cada archivo debe ser > 0 y <= 10MB.");
+            }
+        }
 
         public ProjectManagementService(FreeLinkContext db, INotificationService notifier, IFileStorageService fileStorage)
         {
@@ -235,7 +272,9 @@ namespace FreeLink.Infrastructure.Services
             _db.Projectmessages.Add(message);
             await _db.SaveChangesAsync();
 
-            foreach (var f in files ?? Enumerable.Empty<FileUploadRequest>())
+            var filesList = (files ?? Enumerable.Empty<FileUploadRequest>()).ToList();
+            ValidateFiles(filesList, MaxFilesPerMessage, "mensajes");
+            foreach (var f in filesList)
             {
                 var storedName = await _fileStorage.SaveFileAsync(f.Stream, f.FileName, $"projects/{projectId}/messages");
                 var url = _fileStorage.GetFileUrl(storedName, $"projects/{projectId}/messages");
@@ -297,7 +336,9 @@ namespace FreeLink.Infrastructure.Services
             _db.Projectdeliverables.Add(deliverable);
             await _db.SaveChangesAsync();
 
-            foreach (var f in files ?? Enumerable.Empty<FileUploadRequest>())
+            var fileList = (files ?? Enumerable.Empty<FileUploadRequest>()).ToList();
+            ValidateFiles(fileList, MaxFilesPerDeliverable, "entregables");
+            foreach (var f in fileList)
             {
                 var storedName = await _fileStorage.SaveFileAsync(f.Stream, f.FileName, $"projects/{projectId}/deliverables/{deliverable.DeliverableId}");
                 var url = _fileStorage.GetFileUrl(storedName, $"projects/{projectId}/deliverables/{deliverable.DeliverableId}");
