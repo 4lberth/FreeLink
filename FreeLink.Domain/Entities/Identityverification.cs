@@ -1,11 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
+using FreeLink.Domain.Enums;
 
 namespace FreeLink.Domain.Entities; 
 
 public partial class Identityverification
 {
     public int VerificationId { get; set; }
+    
+    public VerificationStatus Status { get; set; } = VerificationStatus.Pending;
 
     public int UserId { get; set; }
 
@@ -18,8 +21,6 @@ public partial class Identityverification
     public string? DocumentBackUrl { get; set; }
 
     public string? SelfieUrl { get; set; }
-
-    public string? VerificationStatus { get; set; }
 
     public DateTime SubmittedAt { get; set; }
 
