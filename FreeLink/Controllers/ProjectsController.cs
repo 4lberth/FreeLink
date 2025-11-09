@@ -59,5 +59,21 @@ namespace FreeLink.WebAPI.Controllers
             var list = await svc.SearchProjectsAsync(skills, q);
             return Ok(list);
         }
+        
+        [HttpPost("{id}/start")]
+        public async Task<IActionResult> Start(int id)
+        {
+           
+            var success = await svc.StartProjectAsync(id); 
+            return success ? Ok(new { message = "Proyecto iniciado." }) : BadRequest("No se puede iniciar el proyecto en su estado actual.");
+        }
+
+        [HttpPost("{id}/complete")]
+        public async Task<IActionResult> Complete(int id)
+        {
+           
+            var success = await svc.CompleteProjectAsync(id); 
+            return success ? Ok(new { message = "Proyecto completado." }) : BadRequest("No se puede completar el proyecto.");
+        }
     }
 }

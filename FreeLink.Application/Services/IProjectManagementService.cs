@@ -12,5 +12,10 @@ namespace FreeLink.Application.Services
         Task<bool> DeleteProjectAsync(int projectId);
         Task<Project?> GetProjectAsync(int projectId);
         Task<IEnumerable<Project>> SearchProjectsAsync(string? skills = null, string? q = null);
+        
+        // ... en IProjectManagementService.cs ...
+        Task<bool> StartProjectAsync(int projectId);
+        Task<bool> CompleteProjectAsync(int projectId);
+        Task<bool> CancelProjectAsync(int projectId);
     }
 }

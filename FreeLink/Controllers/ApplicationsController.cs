@@ -33,5 +33,22 @@ namespace FreeLink.WebAPI.Controllers
         {
             return Ok(await applicationService.GetApplicationsByFreelancerAsync(freelancerId));
         }
+        [HttpPost("applications/{id}/accept")]
+        public async Task<IActionResult> Accept(int id)
+        {
+            try
+            {
+                var success = await applicationService.AcceptApplicationAsync(id);
+                return success ? Ok(new { message = "Postulación aceptada." }) : NotFound();
+            }
+            catch (InvalidOperationException ex) { return BadRequest(ex.Message); }
+        }
+
+        [HttpPost("applications/{id}/reject")]
+        public async Task<IActionResult> Reject(int id)
+        {
+            var success = await applicationService.RejectApplicationAsync(id);
+            return success ? Ok(new { message = "Postulación rechazada." }) : NotFound();
+        }
     }
 }
