@@ -1,4 +1,5 @@
 ﻿using System.Security.Claims;
+using FreeLink.Application.UseCase.User.Commands.ChangePassword;
 using FreeLink.Application.UseCase.User.Commands.UpdateUser;
 using FreeLink.Application.UseCase.User.Commands.UpdateUserProfile;
 using FreeLink.Application.UseCase.User.DTOs;
@@ -161,6 +162,41 @@ public class UsersController : ControllerBase
             City = request.City,
             Bio = request.Bio,
             ProfilePictureUrl = request.ProfilePictureUrl,
+            RequestingUserId = int.Parse(requestingUserId),
+            RequestingUserRole = requestingUserRole ?? string.Empty
+        };
+
+        var response = await _mediator.Send(command);
+
+        if (!response.Success)
+        {
+            return BadRequest(response);
+        }
+
+        return Ok(response);
+    }
+    
+    [HttpPut("{id}/password")]
+    public async Task<IActionResult> ChangePassword(int id, [FromBody] ChangePasswordRequest request)
+    {
+        // Obtener datos del usuario autenticado desde el token
+        var requestingUserId = User.Claims.FirstOrDefault(c => 
+            c.Type == "userId" || c.Type == ClaimTypes.NameIdentifier)?.Value;
+
+        var requestingUserRole = User.Claims.FirstOrDefault(c => 
+            c.Type == "userType" || c.Type == ClaimTypes.Role)?.Value;
+
+        if (string.IsNullOrEmpty(requestingUserId))
+        {
+            return Unauthorized(new { success = false, message = "Token inválido" });
+        }
+
+        var command = new ChangePasswordCommand
+        {
+            UserId = id,
+            CurrentPassword = request.CurrentPassword,
+            NewPassword = request.NewPassword,
+            ConfirmNewPassword = request.ConfirmNewPassword,
             RequestingUserId = int.Parse(requestingUserId),
             RequestingUserRole = requestingUserRole ?? string.Empty
         };
