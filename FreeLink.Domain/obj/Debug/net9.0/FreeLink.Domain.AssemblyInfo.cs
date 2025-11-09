@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("FreeLink.Domain")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+5899bd3bdfad6e888fb4ea4cae6b33cb406cec59")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+1c7bb2e4664583be5c6df91f9b8c2b8a82cbb8c7")]
 [assembly: System.Reflection.AssemblyProductAttribute("FreeLink.Domain")]
 [assembly: System.Reflection.AssemblyTitleAttribute("FreeLink.Domain")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

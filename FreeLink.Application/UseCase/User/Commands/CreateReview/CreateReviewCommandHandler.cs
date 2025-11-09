@@ -28,7 +28,7 @@ public class CreateReviewCommandHandler : IRequestHandler<CreateReviewCommand, C
             }
 
             // 2. Verificar que el proyecto existe
-            var project = await _unitOfWork.Repository<Project>().GetById(request.ProjectId);
+            var project = await _unitOfWork.Repository<Domain.Entities.Project>().GetById(request.ProjectId);
             if (project == null)
             {
                 return new CreateReviewResponse

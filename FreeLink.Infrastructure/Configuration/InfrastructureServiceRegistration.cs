@@ -1,4 +1,5 @@
-﻿using FreeLink.Domain.Ports;
+﻿using FreeLink.Application.Services;
+using FreeLink.Domain.Ports;
 using FreeLink.Infrastructure.Adapters;
 using FreeLink.Infrastructure.Data.Context;
 using FreeLink.Infrastructure.Services;
@@ -14,7 +15,7 @@ public static class InfrastructureServiceRegistration
         this IServiceCollection services, 
         IConfiguration configuration)
     {
-        // Registrar DbContext con MySQL
+        // Registrar DbContext con MySQL 
         services.AddDbContext<FreeLinkContext>(options =>
         {
             var connectionString = configuration.GetConnectionString("DefaultConnection");
@@ -25,9 +26,15 @@ public static class InfrastructureServiceRegistration
         services.AddScoped(typeof(IRepository<>), typeof(Repository<>));
         services.AddScoped<IUnitOfWork, UnitOfWork>();
         
+    
         services.AddScoped<IJwtTokenGenerator, JwtTokenGenerator>();
         services.AddScoped<IFileStorageService, FileStorageService>(); 
-
+        
+   
+        services.AddScoped<INotificationService, SimpleNotificationService>();
+        
+        services.AddScoped<IProjectManagementService, ProjectManagementService>();
+        
         return services;
     }
 }
