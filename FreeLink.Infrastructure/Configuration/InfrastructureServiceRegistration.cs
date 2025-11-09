@@ -35,6 +35,8 @@ public static class InfrastructureServiceRegistration
         
         services.AddScoped<IProjectManagementService, ProjectManagementService>();
         
+        services.AddScoped<IApplicationService, ApplicationService>();
+        
         return services;
     }
 }

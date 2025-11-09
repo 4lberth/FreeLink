@@ -8,6 +8,7 @@ builder.Services.AddApiServices(builder.Configuration);
 builder.Services.AddInfrastructureServices(builder.Configuration);
 
 
+
 var app = builder.Build();
     
 // Configurar Swagger solo en desarrollo
