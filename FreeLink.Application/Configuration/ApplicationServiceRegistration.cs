@@ -1,18 +1,18 @@
-﻿using System.Reflection;
+﻿// csharp
 using Microsoft.Extensions.DependencyInjection;
+using FreeLink.Application.Services;
 
-namespace FreeLink.Application.Configuration;
-
-public static class ApplicationServiceRegistration
+namespace FreeLink.Application.Configuration
 {
-    public static IServiceCollection AddApplicationServices(this IServiceCollection services)
+    public static class ApplicationServiceRegistration
     {
-        // Registrar MediatR - escanea el assembly de Application para encontrar Handlers
-        services.AddMediatR(cfg => 
-            cfg.RegisterServicesFromAssembly(Assembly.GetExecutingAssembly()));
+        public static IServiceCollection AddApplicationServices(this IServiceCollection services)
+        {
+            // Registrar servicios de la capa Application
+            services.AddSingleton<IProposalService, InMemoryProposalService>();
 
-        services.AddAutoMapper(Assembly.GetExecutingAssembly());
-
-        return services;
+            // Añadir otros registros existentes si los hay...
+            return services;
+        }
     }
 }
