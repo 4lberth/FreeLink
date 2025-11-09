@@ -58,3 +58,23 @@ C:\6 ciclo\Desarrollo de Aplicaciones Empresariales Avanzado\RIDER\FreeLink.Infr
 C:\6 ciclo\Desarrollo de Aplicaciones Empresariales Avanzado\RIDER\FreeLink.Infrastructure\obj\Debug\net9.0\FreeLink.Infrastructure.pdb
 C:\6 ciclo\Desarrollo de Aplicaciones Empresariales Avanzado\RIDER\FreeLink.Infrastructure\obj\Debug\net9.0\FreeLink.Infrastructure.genruntimeconfig.cache
 C:\6 ciclo\Desarrollo de Aplicaciones Empresariales Avanzado\RIDER\FreeLink.Infrastructure\obj\Debug\net9.0\ref\FreeLink.Infrastructure.dll
+C:\Users\Adriano\OneDrive\Documentos\GitHub\FreeLink\FreeLink.Infrastructure\bin\Debug\net9.0\FreeLink.Infrastructure.deps.json
+C:\Users\Adriano\OneDrive\Documentos\GitHub\FreeLink\FreeLink.Infrastructure\bin\Debug\net9.0\FreeLink.Infrastructure.runtimeconfig.json
+C:\Users\Adriano\OneDrive\Documentos\GitHub\FreeLink\FreeLink.Infrastructure\bin\Debug\net9.0\FreeLink.Infrastructure.dll
+C:\Users\Adriano\OneDrive\Documentos\GitHub\FreeLink\FreeLink.Infrastructure\bin\Debug\net9.0\FreeLink.Infrastructure.pdb
+C:\Users\Adriano\OneDrive\Documentos\GitHub\FreeLink\FreeLink.Infrastructure\bin\Debug\net9.0\FreeLink.Application.dll
+C:\Users\Adriano\OneDrive\Documentos\GitHub\FreeLink\FreeLink.Infrastructure\bin\Debug\net9.0\FreeLink.Domain.dll
+C:\Users\Adriano\OneDrive\Documentos\GitHub\FreeLink\FreeLink.Infrastructure\bin\Debug\net9.0\FreeLink.Application.pdb
+C:\Users\Adriano\OneDrive\Documentos\GitHub\FreeLink\FreeLink.Infrastructure\bin\Debug\net9.0\FreeLink.Domain.pdb
+C:\Users\Adriano\OneDrive\Documentos\GitHub\FreeLink\FreeLink.Infrastructure\obj\Debug\net9.0\FreeLink.Infrastructure.csproj.AssemblyReference.cache
+C:\Users\Adriano\OneDrive\Documentos\GitHub\FreeLink\FreeLink.Infrastructure\obj\Debug\net9.0\FreeLink.Infrastructure.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Adriano\OneDrive\Documentos\GitHub\FreeLink\FreeLink.Infrastructure\obj\Debug\net9.0\FreeLink.Infrastructure.AssemblyInfoInputs.cache
+C:\Users\Adriano\OneDrive\Documentos\GitHub\FreeLink\FreeLink.Infrastructure\obj\Debug\net9.0\FreeLink.Infrastructure.AssemblyInfo.cs
+C:\Users\Adriano\OneDrive\Documentos\GitHub\FreeLink\FreeLink.Infrastructure\obj\Debug\net9.0\FreeLink.Infrastructure.csproj.CoreCompileInputs.cache
+C:\Users\Adriano\OneDrive\Documentos\GitHub\FreeLink\FreeLink.Infrastructure\obj\Debug\net9.0\FreeLink.Infrastructure.sourcelink.json
+C:\Users\Adriano\OneDrive\Documentos\GitHub\FreeLink\FreeLink.Infrastructure\obj\Debug\net9.0\FreeLink.681A9FC0.Up2Date
+C:\Users\Adriano\OneDrive\Documentos\GitHub\FreeLink\FreeLink.Infrastructure\obj\Debug\net9.0\FreeLink.Infrastructure.dll
+C:\Users\Adriano\OneDrive\Documentos\GitHub\FreeLink\FreeLink.Infrastructure\obj\Debug\net9.0\refint\FreeLink.Infrastructure.dll
+C:\Users\Adriano\OneDrive\Documentos\GitHub\FreeLink\FreeLink.Infrastructure\obj\Debug\net9.0\FreeLink.Infrastructure.pdb
+C:\Users\Adriano\OneDrive\Documentos\GitHub\FreeLink\FreeLink.Infrastructure\obj\Debug\net9.0\FreeLink.Infrastructure.genruntimeconfig.cache
+C:\Users\Adriano\OneDrive\Documentos\GitHub\FreeLink\FreeLink.Infrastructure\obj\Debug\net9.0\ref\FreeLink.Infrastructure.dll
