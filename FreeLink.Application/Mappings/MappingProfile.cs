@@ -3,6 +3,7 @@ using FreeLink.Application.UseCase.User.Commands.RegisterUser;
 using FreeLink.Application.UseCase.User.DTOs;
 using FreeLink.Domain.Entities;
 using FreeLink.Application.UseCase.Admin.Queries.GetAllUsers;
+using FreeLink.Application.UseCase.Admin.Queries.GetPendingVerifications;
 
 namespace FreeLink.Application.Mappings;
 
@@ -13,5 +14,6 @@ public class MappingProfile : Profile
         CreateMap<RegisterUserCommand, Userprofile>();
         CreateMap<User, UserDto>();
         CreateMap<User, AdminUserDto>();
+        CreateMap<FreeLink.Domain.Entities.Identityverification, PendingVerificationDto>();
     }
 }
