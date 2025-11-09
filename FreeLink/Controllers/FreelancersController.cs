@@ -1,4 +1,5 @@
 ﻿using System.Security.Claims;
+using FreeLink.Application.UseCase.Freelancer.Commands.AddFreelancerSkill;
 using FreeLink.Application.UseCase.Freelancer.Commands.UpdateFreelancerProfile;
 using FreeLink.Application.UseCase.Freelancer.DTOs;
 using FreeLink.Application.UseCase.Freelancer.Queries.GetFreelancerPublicProfile;
@@ -56,6 +57,39 @@ public class FreelancersController : ControllerBase
             HourlyRate = request.HourlyRate,
             AvailabilityStatus = request.AvailabilityStatus,
             ProfessionalTitle = request.ProfessionalTitle,
+            RequestingUserId = int.Parse(requestingUserId),
+            RequestingUserRole = requestingUserRole ?? string.Empty
+        };
+
+        var response = await _mediator.Send(command);
+
+        if (!response.Success)
+        {
+            return BadRequest(response);
+        }
+
+        return Ok(response);
+    }
+    
+    [HttpPost("{id}/skills")]
+    [Authorize]
+    public async Task<IActionResult> AddFreelancerSkill(int id, [FromBody] AddFreelancerSkillRequest request)
+    {
+        var requestingUserId = User.Claims.FirstOrDefault(c => 
+            c.Type == "userId" || c.Type == ClaimTypes.NameIdentifier)?.Value;
+
+        var requestingUserRole = User.Claims.FirstOrDefault(c => 
+            c.Type == "userType" || c.Type == ClaimTypes.Role)?.Value;
+
+        if (string.IsNullOrEmpty(requestingUserId))
+        {
+            return Unauthorized(new { success = false, message = "Token inválido" });
+        }
+
+        var command = new AddFreelancerSkillCommand
+        {
+            FreelancerId = id,
+            SkillId = request.SkillId,
             RequestingUserId = int.Parse(requestingUserId),
             RequestingUserRole = requestingUserRole ?? string.Empty
         };
