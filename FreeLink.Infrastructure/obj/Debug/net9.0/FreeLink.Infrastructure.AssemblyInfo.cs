@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("FreeLink.Infrastructure")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+1c7bb2e4664583be5c6df91f9b8c2b8a82cbb8c7")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+7d593ec7c72537229579cd5cba950eaa3cf9af16")]
 [assembly: System.Reflection.AssemblyProductAttribute("FreeLink.Infrastructure")]
 [assembly: System.Reflection.AssemblyTitleAttribute("FreeLink.Infrastructure")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
