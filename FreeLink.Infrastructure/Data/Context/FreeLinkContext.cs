@@ -482,7 +482,8 @@ public partial class FreeLinkContext : DbContext
 
             entity.HasIndex(e => e.UserId, "UserId");
 
-            entity.HasIndex(e => e.VerificationStatus, "idx_status");
+            // CORREGIDO: Usamos e.Status aquí
+            entity.HasIndex(e => e.Status, "idx_status");
 
             entity.Property(e => e.VerificationId).HasColumnType("int(11)");
             entity.Property(e => e.DocumentBackUrl).HasMaxLength(500);
@@ -497,7 +498,10 @@ public partial class FreeLinkContext : DbContext
                 .HasDefaultValueSql("current_timestamp()")
                 .HasColumnType("timestamp");
             entity.Property(e => e.UserId).HasColumnType("int(11)");
-            entity.Property(e => e.VerificationStatus)
+
+            
+            entity.Property(e => e.Status)
+                .HasColumnName("VerificationStatus") 
                 .HasDefaultValueSql("'Pendiente'")
                 .HasColumnType("enum('Pendiente','Aprobada','Rechazada')");
 

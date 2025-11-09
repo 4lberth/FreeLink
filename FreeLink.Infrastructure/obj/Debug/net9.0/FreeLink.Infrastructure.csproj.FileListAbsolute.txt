@@ -38,6 +38,12 @@ C:\Users\Administrator\FreeLink\FreeLink.Infrastructure\obj\Debug\net9.0\refint\
 C:\Users\Administrator\FreeLink\FreeLink.Infrastructure\obj\Debug\net9.0\FreeLink.Infrastructure.pdb
 C:\Users\Administrator\FreeLink\FreeLink.Infrastructure\obj\Debug\net9.0\FreeLink.Infrastructure.genruntimeconfig.cache
 C:\Users\Administrator\FreeLink\FreeLink.Infrastructure\obj\Debug\net9.0\ref\FreeLink.Infrastructure.dll
+C:\6 ciclo\Desarrollo de Aplicaciones Empresariales Avanzado\RIDER\FreeLink.Infrastructure\obj\Debug\net9.0\FreeLink.Infrastructure.csproj.AssemblyReference.cache
+C:\6 ciclo\Desarrollo de Aplicaciones Empresariales Avanzado\RIDER\FreeLink.Infrastructure\obj\Debug\net9.0\FreeLink.Infrastructure.GeneratedMSBuildEditorConfig.editorconfig
+C:\6 ciclo\Desarrollo de Aplicaciones Empresariales Avanzado\RIDER\FreeLink.Infrastructure\obj\Debug\net9.0\FreeLink.Infrastructure.AssemblyInfoInputs.cache
+C:\6 ciclo\Desarrollo de Aplicaciones Empresariales Avanzado\RIDER\FreeLink.Infrastructure\obj\Debug\net9.0\FreeLink.Infrastructure.AssemblyInfo.cs
+C:\6 ciclo\Desarrollo de Aplicaciones Empresariales Avanzado\RIDER\FreeLink.Infrastructure\obj\Debug\net9.0\FreeLink.Infrastructure.csproj.CoreCompileInputs.cache
+C:\6 ciclo\Desarrollo de Aplicaciones Empresariales Avanzado\RIDER\FreeLink.Infrastructure\obj\Debug\net9.0\FreeLink.Infrastructure.sourcelink.json
 C:\6 ciclo\Desarrollo de Aplicaciones Empresariales Avanzado\RIDER\FreeLink.Infrastructure\bin\Debug\net9.0\FreeLink.Infrastructure.deps.json
 C:\6 ciclo\Desarrollo de Aplicaciones Empresariales Avanzado\RIDER\FreeLink.Infrastructure\bin\Debug\net9.0\FreeLink.Infrastructure.runtimeconfig.json
 C:\6 ciclo\Desarrollo de Aplicaciones Empresariales Avanzado\RIDER\FreeLink.Infrastructure\bin\Debug\net9.0\FreeLink.Infrastructure.dll
@@ -46,12 +52,6 @@ C:\6 ciclo\Desarrollo de Aplicaciones Empresariales Avanzado\RIDER\FreeLink.Infr
 C:\6 ciclo\Desarrollo de Aplicaciones Empresariales Avanzado\RIDER\FreeLink.Infrastructure\bin\Debug\net9.0\FreeLink.Domain.dll
 C:\6 ciclo\Desarrollo de Aplicaciones Empresariales Avanzado\RIDER\FreeLink.Infrastructure\bin\Debug\net9.0\FreeLink.Application.pdb
 C:\6 ciclo\Desarrollo de Aplicaciones Empresariales Avanzado\RIDER\FreeLink.Infrastructure\bin\Debug\net9.0\FreeLink.Domain.pdb
-C:\6 ciclo\Desarrollo de Aplicaciones Empresariales Avanzado\RIDER\FreeLink.Infrastructure\obj\Debug\net9.0\FreeLink.Infrastructure.csproj.AssemblyReference.cache
-C:\6 ciclo\Desarrollo de Aplicaciones Empresariales Avanzado\RIDER\FreeLink.Infrastructure\obj\Debug\net9.0\FreeLink.Infrastructure.GeneratedMSBuildEditorConfig.editorconfig
-C:\6 ciclo\Desarrollo de Aplicaciones Empresariales Avanzado\RIDER\FreeLink.Infrastructure\obj\Debug\net9.0\FreeLink.Infrastructure.AssemblyInfoInputs.cache
-C:\6 ciclo\Desarrollo de Aplicaciones Empresariales Avanzado\RIDER\FreeLink.Infrastructure\obj\Debug\net9.0\FreeLink.Infrastructure.AssemblyInfo.cs
-C:\6 ciclo\Desarrollo de Aplicaciones Empresariales Avanzado\RIDER\FreeLink.Infrastructure\obj\Debug\net9.0\FreeLink.Infrastructure.csproj.CoreCompileInputs.cache
-C:\6 ciclo\Desarrollo de Aplicaciones Empresariales Avanzado\RIDER\FreeLink.Infrastructure\obj\Debug\net9.0\FreeLink.Infrastructure.sourcelink.json
 C:\6 ciclo\Desarrollo de Aplicaciones Empresariales Avanzado\RIDER\FreeLink.Infrastructure\obj\Debug\net9.0\FreeLink.681A9FC0.Up2Date
 C:\6 ciclo\Desarrollo de Aplicaciones Empresariales Avanzado\RIDER\FreeLink.Infrastructure\obj\Debug\net9.0\FreeLink.Infrastructure.dll
 C:\6 ciclo\Desarrollo de Aplicaciones Empresariales Avanzado\RIDER\FreeLink.Infrastructure\obj\Debug\net9.0\refint\FreeLink.Infrastructure.dll
