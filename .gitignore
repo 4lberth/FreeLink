@@ -1,2 +1,13 @@
 obj/ 
 bin/ 
+**/bin/
+**/obj/
+.vs/
+.vscode/
+*.user
+*.suo
+*.pdb
+*.dll
+*.exe
+*.cache
+*.log
