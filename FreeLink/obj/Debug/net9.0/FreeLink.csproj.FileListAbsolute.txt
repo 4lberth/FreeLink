@@ -151,3 +151,7 @@ E:\PROYECTOS\FreeLink\FreeLink\FreeLink\bin\Debug\net9.0\MediatR.Contracts.dll
 E:\PROYECTOS\FreeLink\FreeLink\FreeLink\bin\Debug\net9.0\MediatR.Extensions.Microsoft.DependencyInjection.dll
 E:\PROYECTOS\FreeLink\FreeLink\FreeLink\bin\Debug\net9.0\FreeLink.Application.dll
 E:\PROYECTOS\FreeLink\FreeLink\FreeLink\bin\Debug\net9.0\FreeLink.Application.pdb
+E:\PROYECTOS\FreeLink\FreeLink\FreeLink\bin\Debug\net9.0\Microsoft.Extensions.Diagnostics.Abstractions.dll
+E:\PROYECTOS\FreeLink\FreeLink\FreeLink\bin\Debug\net9.0\Microsoft.Extensions.FileProviders.Abstractions.dll
+E:\PROYECTOS\FreeLink\FreeLink\FreeLink\bin\Debug\net9.0\Microsoft.Extensions.Hosting.Abstractions.dll
+E:\PROYECTOS\FreeLink\FreeLink\FreeLink\bin\Debug\net9.0\System.Diagnostics.DiagnosticSource.dll

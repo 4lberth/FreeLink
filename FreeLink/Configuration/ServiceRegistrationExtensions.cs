@@ -1,7 +1,6 @@
 ﻿using FreeLink.Application.Configuration;
 using FreeLink.Infrastructure.Configuration;
 using Microsoft.OpenApi.Models;
-// --- IMPORTACIONES AÑADIDAS ---
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
@@ -34,7 +33,7 @@ public static class ServiceRegistrationExtensions
                 ValidIssuer = configuration["Jwt:Issuer"],
                 ValidAudience = configuration["Jwt:Audience"],
                 IssuerSigningKey = new SymmetricSecurityKey(
-                    Encoding.UTF8.GetBytes(configuration["Jwt:SecretKey"]) 
+                    Encoding.UTF8.GetBytes(configuration["Jwt:SecretKey"]!) 
                 )
             };
         });
@@ -58,6 +57,10 @@ public static class ServiceRegistrationExtensions
                 Version = "v1",
                 Description = "API con Arquitectura Limpia y Hexagonal"
             });
+            
+            // Configurar soporte para file uploads
+            c.OperationFilter<SwaggerFileOperationFilter>();
+            
             c.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
             {
                 Description = "JWT Authorization header using the Bearer scheme. Ejemplo: 'Bearer {token}'",

@@ -19,6 +19,7 @@ public class FreelancerPublicProfileDto
     public string? ProfilePictureUrl { get; set; }
     
     // Información profesional del freelancer
+    public string? ProfessionalTitle { get; set; }
     public string AvailabilityStatus { get; set; } = string.Empty;
     public decimal? HourlyRate { get; set; }
     public int CompletedProjects { get; set; }
@@ -59,6 +60,7 @@ public class PortfolioItemDto
     public string Title { get; set; } = string.Empty;
     public string? Description { get; set; }
     public string? ProjectUrl { get; set; }
+    public string? ThumbnailUrl { get; set; }
     public string? Technologies { get; set; }
     public DateTime CreatedAt { get; set; }
     public List<PortfolioFileDto> Files { get; set; } = new();

@@ -66,7 +66,7 @@ public class GetFreelancerPublicProfileQueryHandler : IRequestHandler<GetFreelan
                 };
             }
 
-            // 5. Obtener habilidades del freelancer
+            // 5. Obtenerabil idades del freelancer
             var freelancerSkills = await _unitOfWork.Repository<Freelancerskill>()
                 .GetAsync(fs => fs.UserId == request.FreelancerId);
 
@@ -98,10 +98,10 @@ public class GetFreelancerPublicProfileQueryHandler : IRequestHandler<GetFreelan
                     ExperienceId = we.ExperienceId,
                     JobTitle = we.JobTitle ?? string.Empty,
                     CompanyName = we.Company ?? string.Empty,
-                    StartDate = we.StartDate.ToDateTime(TimeOnly.MinValue), // ✅ CORREGIDO: DateOnly a DateTime
-                    EndDate = we.EndDate?.ToDateTime(TimeOnly.MinValue),    // ✅ CORREGIDO: DateOnly? a DateTime?
+                    StartDate = we.StartDate.ToDateTime(TimeOnly.MinValue),
+                    EndDate = we.EndDate?.ToDateTime(TimeOnly.MinValue),
                     Description = we.Description,
-                    IsCurrentJob = we.EndDate == null // ✅ CORREGIDO: Calcular si es trabajo actual
+                    IsCurrentJob = we.EndDate == null
                 })
                 .ToList();
 
@@ -113,7 +113,6 @@ public class GetFreelancerPublicProfileQueryHandler : IRequestHandler<GetFreelan
 
             foreach (var item in portfolioItems.OrderByDescending(pi => pi.CreatedAt))
             {
-                // Obtener archivos del portafolio
                 var files = await _unitOfWork.Repository<Portfoliofile>()
                     .GetAsync(pf => pf.PortfolioId == item.PortfolioId);
 
@@ -131,7 +130,8 @@ public class GetFreelancerPublicProfileQueryHandler : IRequestHandler<GetFreelan
                     Title = item.Title ?? string.Empty,
                     Description = item.Description,
                     ProjectUrl = item.ProjectUrl,
-                    Technologies = string.Empty, // ✅ CORREGIDO: Campo no existe en la entidad
+                    ThumbnailUrl = item.ThumbnailUrl,
+                    Technologies = string.Empty,
                     CreatedAt = item.CreatedAt,
                     Files = fileDtos
                 });
@@ -148,6 +148,7 @@ public class GetFreelancerPublicProfileQueryHandler : IRequestHandler<GetFreelan
                 Bio = userProfile.Bio,
                 ProfilePictureUrl = userProfile.ProfilePicture,
                 
+                ProfessionalTitle = freelancerProfile.Title,
                 AvailabilityStatus = freelancerProfile.AvailabilityStatus ?? string.Empty,
                 HourlyRate = freelancerProfile.HourlyRate,
                 CompletedProjects = freelancerProfile.CompletedProjects ?? 0,
