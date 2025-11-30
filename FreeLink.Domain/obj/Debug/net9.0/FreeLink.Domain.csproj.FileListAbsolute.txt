@@ -50,3 +50,16 @@ D:\FreeLink\FreeLink\FreeLink.Domain\obj\Debug\net9.0\FreeLink.Domain.dll
 D:\FreeLink\FreeLink\FreeLink.Domain\obj\Debug\net9.0\refint\FreeLink.Domain.dll
 D:\FreeLink\FreeLink\FreeLink.Domain\obj\Debug\net9.0\FreeLink.Domain.pdb
 D:\FreeLink\FreeLink\FreeLink.Domain\obj\Debug\net9.0\ref\FreeLink.Domain.dll
+C:\Users\Administrator\.gemini\antigravity\scratch\FreeLink\FreeLink.Domain\bin\Debug\net9.0\FreeLink.Domain.deps.json
+C:\Users\Administrator\.gemini\antigravity\scratch\FreeLink\FreeLink.Domain\bin\Debug\net9.0\FreeLink.Domain.dll
+C:\Users\Administrator\.gemini\antigravity\scratch\FreeLink\FreeLink.Domain\bin\Debug\net9.0\FreeLink.Domain.pdb
+C:\Users\Administrator\.gemini\antigravity\scratch\FreeLink\FreeLink.Domain\obj\Debug\net9.0\FreeLink.Domain.csproj.AssemblyReference.cache
+C:\Users\Administrator\.gemini\antigravity\scratch\FreeLink\FreeLink.Domain\obj\Debug\net9.0\FreeLink.Domain.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Administrator\.gemini\antigravity\scratch\FreeLink\FreeLink.Domain\obj\Debug\net9.0\FreeLink.Domain.AssemblyInfoInputs.cache
+C:\Users\Administrator\.gemini\antigravity\scratch\FreeLink\FreeLink.Domain\obj\Debug\net9.0\FreeLink.Domain.AssemblyInfo.cs
+C:\Users\Administrator\.gemini\antigravity\scratch\FreeLink\FreeLink.Domain\obj\Debug\net9.0\FreeLink.Domain.csproj.CoreCompileInputs.cache
+C:\Users\Administrator\.gemini\antigravity\scratch\FreeLink\FreeLink.Domain\obj\Debug\net9.0\FreeLink.Domain.sourcelink.json
+C:\Users\Administrator\.gemini\antigravity\scratch\FreeLink\FreeLink.Domain\obj\Debug\net9.0\FreeLink.Domain.dll
+C:\Users\Administrator\.gemini\antigravity\scratch\FreeLink\FreeLink.Domain\obj\Debug\net9.0\refint\FreeLink.Domain.dll
+C:\Users\Administrator\.gemini\antigravity\scratch\FreeLink\FreeLink.Domain\obj\Debug\net9.0\FreeLink.Domain.pdb
+C:\Users\Administrator\.gemini\antigravity\scratch\FreeLink\FreeLink.Domain\obj\Debug\net9.0\ref\FreeLink.Domain.dll

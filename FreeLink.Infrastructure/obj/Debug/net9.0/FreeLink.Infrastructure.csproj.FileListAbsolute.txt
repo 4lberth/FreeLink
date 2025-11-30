@@ -78,3 +78,12 @@ D:\FreeLink\FreeLink\FreeLink.Infrastructure\obj\Debug\net9.0\refint\FreeLink.In
 D:\FreeLink\FreeLink\FreeLink.Infrastructure\obj\Debug\net9.0\FreeLink.Infrastructure.pdb
 D:\FreeLink\FreeLink\FreeLink.Infrastructure\obj\Debug\net9.0\FreeLink.Infrastructure.genruntimeconfig.cache
 D:\FreeLink\FreeLink\FreeLink.Infrastructure\obj\Debug\net9.0\ref\FreeLink.Infrastructure.dll
+C:\Users\Administrator\.gemini\antigravity\scratch\FreeLink\FreeLink.Infrastructure\obj\Debug\net9.0\FreeLink.Infrastructure.csproj.AssemblyReference.cache
+C:\Users\Administrator\.gemini\antigravity\scratch\FreeLink\FreeLink.Infrastructure\obj\Debug\net9.0\FreeLink.Infrastructure.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Administrator\.gemini\antigravity\scratch\FreeLink\FreeLink.Infrastructure\obj\Debug\net9.0\FreeLink.Infrastructure.AssemblyInfoInputs.cache
+C:\Users\Administrator\.gemini\antigravity\scratch\FreeLink\FreeLink.Infrastructure\obj\Debug\net9.0\FreeLink.Infrastructure.AssemblyInfo.cs
+C:\Users\Administrator\.gemini\antigravity\scratch\FreeLink\FreeLink.Infrastructure\obj\Debug\net9.0\FreeLink.Infrastructure.csproj.CoreCompileInputs.cache
+C:\Users\Administrator\.gemini\antigravity\scratch\FreeLink\FreeLink.Infrastructure\obj\Debug\net9.0\FreeLink.Infrastructure.sourcelink.json
+C:\Users\Administrator\.gemini\antigravity\scratch\FreeLink\FreeLink.Infrastructure\obj\Debug\net9.0\FreeLink.Infrastructure.dll
+C:\Users\Administrator\.gemini\antigravity\scratch\FreeLink\FreeLink.Infrastructure\obj\Debug\net9.0\refint\FreeLink.Infrastructure.dll
+C:\Users\Administrator\.gemini\antigravity\scratch\FreeLink\FreeLink.Infrastructure\obj\Debug\net9.0\FreeLink.Infrastructure.pdb
