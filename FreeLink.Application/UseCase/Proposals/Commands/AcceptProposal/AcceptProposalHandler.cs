@@ -9,16 +9,13 @@ public class AcceptProposalHandler : IRequestHandler<AcceptProposalCommand, Acce
 {
     private readonly IUnitOfWork _unitOfWork;
     private readonly INotificationService _notificationService;
-    private readonly IPdfService _pdfService;
 
     public AcceptProposalHandler(
         IUnitOfWork unitOfWork, 
-        INotificationService notificationService,
-        IPdfService pdfService)
+        INotificationService notificationService)
     {
         _unitOfWork = unitOfWork;
         _notificationService = notificationService;
-        _pdfService = pdfService;
     }
 
     public async Task<AcceptProposalResponse> Handle(AcceptProposalCommand request, CancellationToken cancellationToken)
@@ -80,27 +77,16 @@ public class AcceptProposalHandler : IRequestHandler<AcceptProposalCommand, Acce
                 ProposalId = proposal.ProposalId,
                 ClientId = project.ClientId,
                 FreelancerId = proposal.FreelancerId,
-                ContractStatus = "Pendiente Firma",  // ✅ ENUM: 'Pendiente Firma','Firmado','En Ejecución','Completado','Cancelado'
+                ContractStatus = "Pendiente Firma",  // ENUM: 'Pendiente Firma','Firmado','En Ejecución','Completado','Cancelado'
                 TotalAmount = proposal.TotalCost,
                 GeneratedAt = DateTime.UtcNow
+                // ContractPdfUrl will be NULL until both parties sign
             };
 
             await _unitOfWork.Repository<Contract>().Add(contract);
             await _unitOfWork.Complete();
 
-            // ✅ 6.1 GENERAR PDF Y SUBIRLO A SUPABASE
-            try
-            {
-                var pdfUrl = await _pdfService.GenerateContractPdfAsync(contract.ContractId);
-                contract.ContractPdfUrl = pdfUrl;
-                await _unitOfWork.Repository<Contract>().Update(contract);
-                await _unitOfWork.Complete();
-            }
-            catch (Exception pdfEx)
-            {
-                // Log error pero no falla todo el proceso
-                Console.WriteLine($"Error generando PDF: {pdfEx.Message}");
-            }
+            // Note: PDF will be generated when both parties sign the contract (SignContractHandler)
 
             // 7. Registrar actividad en el proyecto
             await _notificationService.LogProjectActivityAsync(

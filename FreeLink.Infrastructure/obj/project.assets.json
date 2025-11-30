@@ -31,6 +31,41 @@
           }
         }
       },
+      "functions-csharp/1.3.2": {
+        "type": "package",
+        "dependencies": {
+          "Newtonsoft.Json": "13.0.3",
+          "supabase-core": "0.0.3"
+        },
+        "compile": {
+          "lib/netstandard2.0/Supabase.Functions.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/netstandard2.0/Supabase.Functions.dll": {
+            "related": ".xml"
+          }
+        }
+      },
+      "gotrue-csharp/4.2.6": {
+        "type": "package",
+        "dependencies": {
+          "Newtonsoft.Json": "13.0.3",
+          "System.IdentityModel.Tokens.Jwt": "7.0.3",
+          "supabase-core": "0.0.3"
+        },
+        "compile": {
+          "lib/netstandard2.0/Supabase.Gotrue.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/netstandard2.0/Supabase.Gotrue.dll": {
+            "related": ".xml"
+          }
+        }
+      },
       "Humanizer.Core/2.14.1": {
         "type": "package",
         "compile": {
@@ -980,6 +1015,19 @@
           }
         }
       },
+      "MimeMapping/2.0.0": {
+        "type": "package",
+        "compile": {
+          "lib/netstandard2.0/MimeMapping.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/netstandard2.0/MimeMapping.dll": {
+            "related": ".xml"
+          }
+        }
+      },
       "Mono.TextTemplating/3.0.0": {
         "type": "package",
         "dependencies": {
@@ -1012,6 +1060,19 @@
           }
         }
       },
+      "Newtonsoft.Json/13.0.3": {
+        "type": "package",
+        "compile": {
+          "lib/net6.0/Newtonsoft.Json.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net6.0/Newtonsoft.Json.dll": {
+            "related": ".xml"
+          }
+        }
+      },
       "Pomelo.EntityFrameworkCore.MySql/9.0.0": {
         "type": "package",
         "dependencies": {
@@ -1025,6 +1086,23 @@
         },
         "runtime": {
           "lib/net8.0/Pomelo.EntityFrameworkCore.MySql.dll": {
+            "related": ".xml"
+          }
+        }
+      },
+      "postgrest-csharp/3.5.0": {
+        "type": "package",
+        "dependencies": {
+          "Newtonsoft.Json": "13.0.3",
+          "supabase-core": "0.0.3"
+        },
+        "compile": {
+          "lib/netstandard2.0/Supabase.Postgrest.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/netstandard2.0/Supabase.Postgrest.dll": {
             "related": ".xml"
           }
         }
@@ -1132,6 +1210,78 @@
           "runtimes/win-x86/native/zlib1.dll": {
             "assetType": "native",
             "rid": "win-x86"
+          }
+        }
+      },
+      "realtime-csharp/6.0.4": {
+        "type": "package",
+        "dependencies": {
+          "Newtonsoft.Json": "13.0.3",
+          "Websocket.Client": "4.6.1",
+          "postgrest-csharp": "3.2.2",
+          "supabase-core": "0.0.3"
+        },
+        "compile": {
+          "lib/netstandard2.0/Supabase.Realtime.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/netstandard2.0/Supabase.Realtime.dll": {
+            "related": ".xml"
+          }
+        }
+      },
+      "supabase-core/0.0.3": {
+        "type": "package",
+        "compile": {
+          "lib/netstandard2.0/Supabase.Core.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/netstandard2.0/Supabase.Core.dll": {
+            "related": ".xml"
+          }
+        }
+      },
+      "supabase-csharp/0.16.0": {
+        "type": "package",
+        "dependencies": {
+          "Newtonsoft.Json": "13.0.3",
+          "functions-csharp": "1.3.2",
+          "gotrue-csharp": "4.2.6",
+          "postgrest-csharp": "3.5.0",
+          "realtime-csharp": "6.0.4",
+          "supabase-core": "0.0.3",
+          "supabase-storage-csharp": "1.4.0"
+        },
+        "compile": {
+          "lib/netstandard2.0/Supabase.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/netstandard2.0/Supabase.dll": {
+            "related": ".xml"
+          }
+        }
+      },
+      "supabase-storage-csharp/1.4.0": {
+        "type": "package",
+        "dependencies": {
+          "MimeMapping": "2.0.0",
+          "Newtonsoft.Json": "13.0.3",
+          "supabase-core": "0.0.3"
+        },
+        "compile": {
+          "lib/netstandard2.0/Supabase.Storage.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/netstandard2.0/Supabase.Storage.dll": {
+            "related": ".xml"
           }
         }
       },
@@ -1335,6 +1485,22 @@
           "buildTransitive/net6.0/_._": {}
         }
       },
+      "System.Reactive/5.0.0": {
+        "type": "package",
+        "compile": {
+          "lib/net5.0/System.Reactive.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net5.0/System.Reactive.dll": {
+            "related": ".xml"
+          }
+        },
+        "build": {
+          "buildTransitive/net5.0/_._": {}
+        }
+      },
       "System.Reflection.Metadata/7.0.0": {
         "type": "package",
         "dependencies": {
@@ -1411,7 +1577,7 @@
       "System.Threading.Channels/7.0.0": {
         "type": "package",
         "compile": {
-          "lib/net7.0/_._": {
+          "lib/net7.0/System.Threading.Channels.dll": {
             "related": ".xml"
           }
         },
@@ -1422,6 +1588,23 @@
         },
         "build": {
           "buildTransitive/net6.0/_._": {}
+        }
+      },
+      "Websocket.Client/4.6.1": {
+        "type": "package",
+        "dependencies": {
+          "System.Reactive": "5.0.0",
+          "System.Threading.Channels": "5.0.0"
+        },
+        "compile": {
+          "lib/net6.0/Websocket.Client.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net6.0/Websocket.Client.dll": {
+            "related": ".xml"
+          }
         }
       },
       "FreeLink.Application/1.0.0": {
@@ -1502,6 +1685,36 @@
         "lib/netstandard2.1/BCrypt.Net-Next.dll",
         "lib/netstandard2.1/BCrypt.Net-Next.xml",
         "readme.md"
+      ]
+    },
+    "functions-csharp/1.3.2": {
+      "sha512": "7ktfO7+JJhi3QvcOkdTz/BGu++Am3HtYNqBOM1tLVoEAObXzKmx6y2Rwomc4V+7HFSxaqNQQFzVsX8MkSG7Xhw==",
+      "type": "package",
+      "path": "functions-csharp/1.3.2",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "README.md",
+        "functions-csharp.1.3.2.nupkg.sha512",
+        "functions-csharp.nuspec",
+        "icon.png",
+        "lib/netstandard2.0/Supabase.Functions.dll",
+        "lib/netstandard2.0/Supabase.Functions.xml"
+      ]
+    },
+    "gotrue-csharp/4.2.6": {
+      "sha512": "GDEQn4o0hk4qxPB7UPWSqVzdPR0hf4tcXkESNZoD4istvyBeVAcXskeK/7B07hwiN18s+O/irYulqbi1i8dGzw==",
+      "type": "package",
+      "path": "gotrue-csharp/4.2.6",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "README.md",
+        "gotrue-csharp.4.2.6.nupkg.sha512",
+        "gotrue-csharp.nuspec",
+        "icon.png",
+        "lib/netstandard2.0/Supabase.Gotrue.dll",
+        "lib/netstandard2.0/Supabase.Gotrue.xml"
       ]
     },
     "Humanizer.Core/2.14.1": {
@@ -3305,6 +3518,22 @@
         "microsoft.net.http.headers.nuspec"
       ]
     },
+    "MimeMapping/2.0.0": {
+      "sha512": "hJRJLm91AF3OSs61y3uVZ5e2NRbq9bj0X2FS5q2PKUifP0T2Eu0FsdRL9gXa537tFQIKf+2TANkzsW2s0BZenA==",
+      "type": "package",
+      "path": "mimemapping/2.0.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "README.md",
+        "lib/net461/MimeMapping.dll",
+        "lib/net461/MimeMapping.xml",
+        "lib/netstandard2.0/MimeMapping.dll",
+        "lib/netstandard2.0/MimeMapping.xml",
+        "mimemapping.2.0.0.nupkg.sha512",
+        "mimemapping.nuspec"
+      ]
+    },
     "Mono.TextTemplating/3.0.0": {
       "sha512": "YqueG52R/Xej4VVbKuRIodjiAhV0HR/XVbLbNrJhCZnzjnSjgMJ/dCdV0akQQxavX6hp/LC6rqLGLcXeQYU7XA==",
       "type": "package",
@@ -3351,6 +3580,36 @@
         "mysqlconnector.nuspec"
       ]
     },
+    "Newtonsoft.Json/13.0.3": {
+      "sha512": "HrC5BXdl00IP9zeV+0Z848QWPAoCr9P3bDEZguI+gkLcBKAOxix/tLEAAHC+UvDNPv4a2d18lOReHMOagPa+zQ==",
+      "type": "package",
+      "path": "newtonsoft.json/13.0.3",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "LICENSE.md",
+        "README.md",
+        "lib/net20/Newtonsoft.Json.dll",
+        "lib/net20/Newtonsoft.Json.xml",
+        "lib/net35/Newtonsoft.Json.dll",
+        "lib/net35/Newtonsoft.Json.xml",
+        "lib/net40/Newtonsoft.Json.dll",
+        "lib/net40/Newtonsoft.Json.xml",
+        "lib/net45/Newtonsoft.Json.dll",
+        "lib/net45/Newtonsoft.Json.xml",
+        "lib/net6.0/Newtonsoft.Json.dll",
+        "lib/net6.0/Newtonsoft.Json.xml",
+        "lib/netstandard1.0/Newtonsoft.Json.dll",
+        "lib/netstandard1.0/Newtonsoft.Json.xml",
+        "lib/netstandard1.3/Newtonsoft.Json.dll",
+        "lib/netstandard1.3/Newtonsoft.Json.xml",
+        "lib/netstandard2.0/Newtonsoft.Json.dll",
+        "lib/netstandard2.0/Newtonsoft.Json.xml",
+        "newtonsoft.json.13.0.3.nupkg.sha512",
+        "newtonsoft.json.nuspec",
+        "packageIcon.png"
+      ]
+    },
     "Pomelo.EntityFrameworkCore.MySql/9.0.0": {
       "sha512": "cl7S4s6CbJno0LjNxrBHNc2xxmCliR5i40ATPZk/eTywVaAbHCbdc9vbGc3QThvwGjHqrDHT8vY9m1VF/47o0g==",
       "type": "package",
@@ -3364,6 +3623,21 @@
         "lib/net8.0/Pomelo.EntityFrameworkCore.MySql.xml",
         "pomelo.entityframeworkcore.mysql.9.0.0.nupkg.sha512",
         "pomelo.entityframeworkcore.mysql.nuspec"
+      ]
+    },
+    "postgrest-csharp/3.5.0": {
+      "sha512": "sNMyB3z+Y3Jv/H09oO52pocBEOR9iG54YT++1roEQqKXFrSedYMrljo3m3HCXrPmFmJSklSjkePID+uFSUz1wA==",
+      "type": "package",
+      "path": "postgrest-csharp/3.5.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "README.md",
+        "icon.png",
+        "lib/netstandard2.0/Supabase.Postgrest.dll",
+        "lib/netstandard2.0/Supabase.Postgrest.xml",
+        "postgrest-csharp.3.5.0.nupkg.sha512",
+        "postgrest-csharp.nuspec"
       ]
     },
     "QuestPDF/2025.7.4": {
@@ -3448,6 +3722,66 @@
         "runtimes/win-x86/native/libwinpthread-1.dll",
         "runtimes/win-x86/native/qpdf.dll",
         "runtimes/win-x86/native/zlib1.dll"
+      ]
+    },
+    "realtime-csharp/6.0.4": {
+      "sha512": "Bahtvznvu4bDuJFTFYTUyfBT6fyAxtIJ8r8i7k60HBZvfC/OUZQv7TgbQ6lRQTYekuH4pFvAIHACW7lSWqkW8Q==",
+      "type": "package",
+      "path": "realtime-csharp/6.0.4",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "README.md",
+        "icon.png",
+        "lib/netstandard2.0/Supabase.Realtime.dll",
+        "lib/netstandard2.0/Supabase.Realtime.xml",
+        "realtime-csharp.6.0.4.nupkg.sha512",
+        "realtime-csharp.nuspec"
+      ]
+    },
+    "supabase-core/0.0.3": {
+      "sha512": "e6NxN3kShudlO9ts378CW3V94op6GsesrVanp6yXSf5K0iRzP36TFf3EpqaSOylgbvBUUfZnPlestCnJ8ULvjA==",
+      "type": "package",
+      "path": "supabase-core/0.0.3",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "README.md",
+        "icon.png",
+        "lib/netstandard2.0/Supabase.Core.dll",
+        "lib/netstandard2.0/Supabase.Core.xml",
+        "supabase-core.0.0.3.nupkg.sha512",
+        "supabase-core.nuspec"
+      ]
+    },
+    "supabase-csharp/0.16.0": {
+      "sha512": "iyx+/QT5tqPyG85+pWZtC5eZoA0EZtw2S7KUO/AtJOTWLO2ZGnJs9fI6gbL0d8S9kSq/A1Y93ysu1d+jQ3KlwQ==",
+      "type": "package",
+      "path": "supabase-csharp/0.16.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "README.md",
+        "icon.png",
+        "lib/netstandard2.0/Supabase.dll",
+        "lib/netstandard2.0/Supabase.xml",
+        "supabase-csharp.0.16.0.nupkg.sha512",
+        "supabase-csharp.nuspec"
+      ]
+    },
+    "supabase-storage-csharp/1.4.0": {
+      "sha512": "Q8bOtwgJYIyQt/y1yV4GA9bpzZLm6iBLTajck1N2rw+U7Ag9eyQvh4yaPkd5vxBkyiVAk9UUkwAUk6w1ZuhMzA==",
+      "type": "package",
+      "path": "supabase-storage-csharp/1.4.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "README.md",
+        "icon.png",
+        "lib/netstandard2.0/Supabase.Storage.dll",
+        "lib/netstandard2.0/Supabase.Storage.xml",
+        "supabase-storage-csharp.1.4.0.nupkg.sha512",
+        "supabase-storage-csharp.nuspec"
       ]
     },
     "System.Buffers/4.6.0": {
@@ -3756,6 +4090,35 @@
         "useSharedDesignerContext.txt"
       ]
     },
+    "System.Reactive/5.0.0": {
+      "sha512": "erBZjkQHWL9jpasCE/0qKAryzVBJFxGHVBAvgRN1bzM0q2s1S4oYREEEL0Vb+1kA/6BKb5FjUZMp5VXmy+gzkQ==",
+      "type": "package",
+      "path": "system.reactive/5.0.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "build/net5.0/_._",
+        "build/netcoreapp3.1/System.Reactive.dll",
+        "build/netcoreapp3.1/System.Reactive.targets",
+        "build/netcoreapp3.1/System.Reactive.xml",
+        "buildTransitive/net5.0/_._",
+        "buildTransitive/netcoreapp3.1/System.Reactive.targets",
+        "lib/net472/System.Reactive.dll",
+        "lib/net472/System.Reactive.xml",
+        "lib/net5.0-windows10.0.19041/System.Reactive.dll",
+        "lib/net5.0-windows10.0.19041/System.Reactive.xml",
+        "lib/net5.0/System.Reactive.dll",
+        "lib/net5.0/System.Reactive.xml",
+        "lib/netcoreapp3.1/_._",
+        "lib/netstandard2.0/System.Reactive.dll",
+        "lib/netstandard2.0/System.Reactive.xml",
+        "lib/uap10.0.16299/System.Reactive.dll",
+        "lib/uap10.0.16299/System.Reactive.pri",
+        "lib/uap10.0.16299/System.Reactive.xml",
+        "system.reactive.5.0.0.nupkg.sha512",
+        "system.reactive.nuspec"
+      ]
+    },
     "System.Reflection.Metadata/7.0.0": {
       "sha512": "MclTG61lsD9sYdpNz9xsKBzjsmsfCtcMZYXz/IUr2zlhaTaABonlr1ESeompTgM+Xk+IwtGYU7/voh3YWB/fWw==",
       "type": "package",
@@ -3944,6 +4307,27 @@
         "useSharedDesignerContext.txt"
       ]
     },
+    "Websocket.Client/4.6.1": {
+      "sha512": "6ccH+gNepmlQILnp8L+9J3PvN8Nk9qmdWWhb7aBZC8TvhisgK/JMq6H1evtzRJ3MRM/FWjumP6J/HPEt+DXwuQ==",
+      "type": "package",
+      "path": "websocket.client/4.6.1",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "README.md",
+        "icon.png",
+        "lib/net5.0/Websocket.Client.dll",
+        "lib/net5.0/Websocket.Client.xml",
+        "lib/net6.0/Websocket.Client.dll",
+        "lib/net6.0/Websocket.Client.xml",
+        "lib/netstandard2.0/Websocket.Client.dll",
+        "lib/netstandard2.0/Websocket.Client.xml",
+        "lib/netstandard2.1/Websocket.Client.dll",
+        "lib/netstandard2.1/Websocket.Client.xml",
+        "websocket.client.4.6.1.nupkg.sha512",
+        "websocket.client.nuspec"
+      ]
+    },
     "FreeLink.Application/1.0.0": {
       "type": "project",
       "path": "../FreeLink.Application/FreeLink.Application.csproj",
@@ -3966,47 +4350,40 @@
       "Microsoft.Extensions.Hosting.Abstractions >= 10.0.0",
       "Pomelo.EntityFrameworkCore.MySql >= 9.0.0",
       "QuestPDF >= 2025.7.4",
-      "System.IdentityModel.Tokens.Jwt >= 8.0.1"
+      "System.IdentityModel.Tokens.Jwt >= 8.0.1",
+      "supabase-csharp >= 0.15.3"
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Administrator\\.nuget\\packages\\": {},
-    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
+    "C:\\Users\\pumac\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Administrator\\.gemini\\antigravity\\scratch\\FreeLink\\FreeLink.Infrastructure\\FreeLink.Infrastructure.csproj",
+      "projectUniqueName": "C:\\Users\\pumac\\RiderProjects\\FreeLink\\FreeLink.Infrastructure\\FreeLink.Infrastructure.csproj",
       "projectName": "FreeLink.Infrastructure",
-      "projectPath": "C:\\Users\\Administrator\\.gemini\\antigravity\\scratch\\FreeLink\\FreeLink.Infrastructure\\FreeLink.Infrastructure.csproj",
-      "packagesPath": "C:\\Users\\Administrator\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Administrator\\.gemini\\antigravity\\scratch\\FreeLink\\FreeLink.Infrastructure\\obj\\",
+      "projectPath": "C:\\Users\\pumac\\RiderProjects\\FreeLink\\FreeLink.Infrastructure\\FreeLink.Infrastructure.csproj",
+      "packagesPath": "C:\\Users\\pumac\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\pumac\\RiderProjects\\FreeLink\\FreeLink.Infrastructure\\obj\\",
       "projectStyle": "PackageReference",
-      "fallbackFolders": [
-        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-      ],
       "configFilePaths": [
-        "C:\\Users\\Administrator\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        "C:\\Users\\pumac\\AppData\\Roaming\\NuGet\\NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net9.0"
       ],
       "sources": {
-        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-        "C:\\Program Files\\dotnet\\library-packs": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
         "net9.0": {
           "targetAlias": "net9.0",
           "projectReferences": {
-            "C:\\Users\\Administrator\\.gemini\\antigravity\\scratch\\FreeLink\\FreeLink.Application\\FreeLink.Application.csproj": {
-              "projectPath": "C:\\Users\\Administrator\\.gemini\\antigravity\\scratch\\FreeLink\\FreeLink.Application\\FreeLink.Application.csproj"
+            "C:\\Users\\pumac\\RiderProjects\\FreeLink\\FreeLink.Application\\FreeLink.Application.csproj": {
+              "projectPath": "C:\\Users\\pumac\\RiderProjects\\FreeLink\\FreeLink.Application\\FreeLink.Application.csproj"
             },
-            "C:\\Users\\Administrator\\.gemini\\antigravity\\scratch\\FreeLink\\FreeLink.Domain\\FreeLink.Domain.csproj": {
-              "projectPath": "C:\\Users\\Administrator\\.gemini\\antigravity\\scratch\\FreeLink\\FreeLink.Domain\\FreeLink.Domain.csproj"
+            "C:\\Users\\pumac\\RiderProjects\\FreeLink\\FreeLink.Domain\\FreeLink.Domain.csproj": {
+              "projectPath": "C:\\Users\\pumac\\RiderProjects\\FreeLink\\FreeLink.Domain\\FreeLink.Domain.csproj"
             }
           }
         }
@@ -4062,6 +4439,10 @@
           "System.IdentityModel.Tokens.Jwt": {
             "target": "Package",
             "version": "[8.0.1, )"
+          },
+          "supabase-csharp": {
+            "target": "Package",
+            "version": "[0.15.3, )"
           }
         },
         "imports": [
@@ -4085,6 +4466,16 @@
     }
   },
   "logs": [
+    {
+      "code": "NU1603",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "FreeLink.Infrastructure depends on supabase-csharp (>= 0.15.3) but supabase-csharp 0.15.3 was not found. supabase-csharp 0.16.0 was resolved instead.",
+      "libraryId": "supabase-csharp",
+      "targetGraphs": [
+        "net9.0"
+      ]
+    },
     {
       "code": "NU1608",
       "level": "Warning",

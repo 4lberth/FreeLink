@@ -1,10 +1,8 @@
 ﻿using FreeLink.Application.Contracts;
-using FreeLink.Domain.Entities;
 using FreeLink.Domain.Ports;
 using FreeLink.Infrastructure.Adapters;
 using FreeLink.Infrastructure.Data.Context;
 using FreeLink.Infrastructure.Services;
-using MediatR;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -28,10 +26,17 @@ public static class InfrastructureServiceRegistration
         services.AddScoped(typeof(IRepository<>), typeof(Repository<>));
         services.AddScoped<IUnitOfWork, UnitOfWork>();
         
-        // Registrar servicios
+        // Servicios de infraestructura
         services.AddScoped<IJwtTokenGenerator, JwtTokenGenerator>(); 
         services.AddScoped<IFileService, FileService>();
         services.AddScoped<INotificationService, NotificationService>();
+        
+        // ✅ Supabase Storage Service
+        services.AddScoped<ISupabaseStorageService, SupabaseStorageService>();
+        
+        // ✅ PDF Service (usa Supabase Storage)
+        services.AddScoped<IPdfService, PdfService>();
+
         return services;
     }
 }
