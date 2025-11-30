@@ -1,8 +1,10 @@
 ﻿using FreeLink.Application.Contracts;
+using FreeLink.Domain.Entities;
 using FreeLink.Domain.Ports;
 using FreeLink.Infrastructure.Adapters;
 using FreeLink.Infrastructure.Data.Context;
 using FreeLink.Infrastructure.Services;
+using MediatR;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -29,7 +31,7 @@ public static class InfrastructureServiceRegistration
         // Registrar servicios
         services.AddScoped<IJwtTokenGenerator, JwtTokenGenerator>(); 
         services.AddScoped<IFileService, FileService>();
-
+        services.AddScoped<INotificationService, NotificationService>();
         return services;
     }
 }

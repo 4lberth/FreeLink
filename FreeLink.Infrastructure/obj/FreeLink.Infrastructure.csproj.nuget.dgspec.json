@@ -1,24 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "E:\\PROYECTOS\\FreeLink\\FreeLink\\FreeLink.Infrastructure\\FreeLink.Infrastructure.csproj": {}
+    "C:\\Users\\boza\\Desktop\\ProyectofinalFreelink\\FreeLink.Infrastructure\\FreeLink.Infrastructure.csproj": {}
   },
   "projects": {
-    "E:\\PROYECTOS\\FreeLink\\FreeLink\\FreeLink.Application\\FreeLink.Application.csproj": {
+    "C:\\Users\\boza\\Desktop\\ProyectofinalFreelink\\FreeLink.Application\\FreeLink.Application.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\PROYECTOS\\FreeLink\\FreeLink\\FreeLink.Application\\FreeLink.Application.csproj",
+        "projectUniqueName": "C:\\Users\\boza\\Desktop\\ProyectofinalFreelink\\FreeLink.Application\\FreeLink.Application.csproj",
         "projectName": "FreeLink.Application",
-        "projectPath": "E:\\PROYECTOS\\FreeLink\\FreeLink\\FreeLink.Application\\FreeLink.Application.csproj",
-        "packagesPath": "C:\\Users\\Usuario\\.nuget\\packages\\",
-        "outputPath": "E:\\PROYECTOS\\FreeLink\\FreeLink\\FreeLink.Application\\obj\\",
+        "projectPath": "C:\\Users\\boza\\Desktop\\ProyectofinalFreelink\\FreeLink.Application\\FreeLink.Application.csproj",
+        "packagesPath": "C:\\Users\\boza\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\boza\\Desktop\\ProyectofinalFreelink\\FreeLink.Application\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-        ],
         "configFilePaths": [
-          "C:\\Users\\Usuario\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config"
+          "C:\\Users\\boza\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net9.0"
@@ -30,8 +26,8 @@
           "net9.0": {
             "targetAlias": "net9.0",
             "projectReferences": {
-              "E:\\PROYECTOS\\FreeLink\\FreeLink\\FreeLink.Domain\\FreeLink.Domain.csproj": {
-                "projectPath": "E:\\PROYECTOS\\FreeLink\\FreeLink\\FreeLink.Domain\\FreeLink.Domain.csproj"
+              "C:\\Users\\boza\\Desktop\\ProyectofinalFreelink\\FreeLink.Domain\\FreeLink.Domain.csproj": {
+                "projectPath": "C:\\Users\\boza\\Desktop\\ProyectofinalFreelink\\FreeLink.Domain\\FreeLink.Domain.csproj"
               }
             }
           }
@@ -89,25 +85,21 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.304/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.306/PortableRuntimeIdentifierGraph.json"
         }
       }
     },
-    "E:\\PROYECTOS\\FreeLink\\FreeLink\\FreeLink.Domain\\FreeLink.Domain.csproj": {
+    "C:\\Users\\boza\\Desktop\\ProyectofinalFreelink\\FreeLink.Domain\\FreeLink.Domain.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\PROYECTOS\\FreeLink\\FreeLink\\FreeLink.Domain\\FreeLink.Domain.csproj",
+        "projectUniqueName": "C:\\Users\\boza\\Desktop\\ProyectofinalFreelink\\FreeLink.Domain\\FreeLink.Domain.csproj",
         "projectName": "FreeLink.Domain",
-        "projectPath": "E:\\PROYECTOS\\FreeLink\\FreeLink\\FreeLink.Domain\\FreeLink.Domain.csproj",
-        "packagesPath": "C:\\Users\\Usuario\\.nuget\\packages\\",
-        "outputPath": "E:\\PROYECTOS\\FreeLink\\FreeLink\\FreeLink.Domain\\obj\\",
+        "projectPath": "C:\\Users\\boza\\Desktop\\ProyectofinalFreelink\\FreeLink.Domain\\FreeLink.Domain.csproj",
+        "packagesPath": "C:\\Users\\boza\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\boza\\Desktop\\ProyectofinalFreelink\\FreeLink.Domain\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-        ],
         "configFilePaths": [
-          "C:\\Users\\Usuario\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config"
+          "C:\\Users\\boza\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net9.0"
@@ -158,25 +150,21 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.304/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.306/PortableRuntimeIdentifierGraph.json"
         }
       }
     },
-    "E:\\PROYECTOS\\FreeLink\\FreeLink\\FreeLink.Infrastructure\\FreeLink.Infrastructure.csproj": {
+    "C:\\Users\\boza\\Desktop\\ProyectofinalFreelink\\FreeLink.Infrastructure\\FreeLink.Infrastructure.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\PROYECTOS\\FreeLink\\FreeLink\\FreeLink.Infrastructure\\FreeLink.Infrastructure.csproj",
+        "projectUniqueName": "C:\\Users\\boza\\Desktop\\ProyectofinalFreelink\\FreeLink.Infrastructure\\FreeLink.Infrastructure.csproj",
         "projectName": "FreeLink.Infrastructure",
-        "projectPath": "E:\\PROYECTOS\\FreeLink\\FreeLink\\FreeLink.Infrastructure\\FreeLink.Infrastructure.csproj",
-        "packagesPath": "C:\\Users\\Usuario\\.nuget\\packages\\",
-        "outputPath": "E:\\PROYECTOS\\FreeLink\\FreeLink\\FreeLink.Infrastructure\\obj\\",
+        "projectPath": "C:\\Users\\boza\\Desktop\\ProyectofinalFreelink\\FreeLink.Infrastructure\\FreeLink.Infrastructure.csproj",
+        "packagesPath": "C:\\Users\\boza\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\boza\\Desktop\\ProyectofinalFreelink\\FreeLink.Infrastructure\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-        ],
         "configFilePaths": [
-          "C:\\Users\\Usuario\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config"
+          "C:\\Users\\boza\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net9.0"
@@ -188,11 +176,11 @@
           "net9.0": {
             "targetAlias": "net9.0",
             "projectReferences": {
-              "E:\\PROYECTOS\\FreeLink\\FreeLink\\FreeLink.Application\\FreeLink.Application.csproj": {
-                "projectPath": "E:\\PROYECTOS\\FreeLink\\FreeLink\\FreeLink.Application\\FreeLink.Application.csproj"
+              "C:\\Users\\boza\\Desktop\\ProyectofinalFreelink\\FreeLink.Application\\FreeLink.Application.csproj": {
+                "projectPath": "C:\\Users\\boza\\Desktop\\ProyectofinalFreelink\\FreeLink.Application\\FreeLink.Application.csproj"
               },
-              "E:\\PROYECTOS\\FreeLink\\FreeLink\\FreeLink.Domain\\FreeLink.Domain.csproj": {
-                "projectPath": "E:\\PROYECTOS\\FreeLink\\FreeLink\\FreeLink.Domain\\FreeLink.Domain.csproj"
+              "C:\\Users\\boza\\Desktop\\ProyectofinalFreelink\\FreeLink.Domain\\FreeLink.Domain.csproj": {
+                "projectPath": "C:\\Users\\boza\\Desktop\\ProyectofinalFreelink\\FreeLink.Domain\\FreeLink.Domain.csproj"
               }
             }
           }
@@ -262,7 +250,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.304/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.306/PortableRuntimeIdentifierGraph.json"
         }
       }
     }
