@@ -18,4 +18,9 @@
       <ProjectReference Include="..\FreeLink.Domain\FreeLink.Domain.csproj" />
     </ItemGroup>
 
+    <ItemGroup>
+      <Folder Include="UseCase\Proposals\Commands\" />
+      <Folder Include="UseCase\Proposals\DTOs\" />
+    </ItemGroup>
+
 </Project>

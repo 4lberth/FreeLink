@@ -963,19 +963,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Adriano\\.nuget\\packages\\": {}
+    "C:\\Users\\USUARIO\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Adriano\\OneDrive\\Documentos\\GitHub\\FreeLink\\FreeLink.Application\\FreeLink.Application.csproj",
+      "projectUniqueName": "D:\\FreeLink\\FreeLink\\FreeLink.Application\\FreeLink.Application.csproj",
       "projectName": "FreeLink.Application",
-      "projectPath": "C:\\Users\\Adriano\\OneDrive\\Documentos\\GitHub\\FreeLink\\FreeLink.Application\\FreeLink.Application.csproj",
-      "packagesPath": "C:\\Users\\Adriano\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Adriano\\OneDrive\\Documentos\\GitHub\\FreeLink\\FreeLink.Application\\obj\\",
+      "projectPath": "D:\\FreeLink\\FreeLink\\FreeLink.Application\\FreeLink.Application.csproj",
+      "packagesPath": "C:\\Users\\USUARIO\\.nuget\\packages\\",
+      "outputPath": "D:\\FreeLink\\FreeLink\\FreeLink.Application\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\Adriano\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        "C:\\Users\\USUARIO\\AppData\\Roaming\\NuGet\\NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net9.0"
@@ -987,8 +987,8 @@
         "net9.0": {
           "targetAlias": "net9.0",
           "projectReferences": {
-            "C:\\Users\\Adriano\\OneDrive\\Documentos\\GitHub\\FreeLink\\FreeLink.Domain\\FreeLink.Domain.csproj": {
-              "projectPath": "C:\\Users\\Adriano\\OneDrive\\Documentos\\GitHub\\FreeLink\\FreeLink.Domain\\FreeLink.Domain.csproj"
+            "D:\\FreeLink\\FreeLink\\FreeLink.Domain\\FreeLink.Domain.csproj": {
+              "projectPath": "D:\\FreeLink\\FreeLink\\FreeLink.Domain\\FreeLink.Domain.csproj"
             }
           }
         }
@@ -1046,7 +1046,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.305/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.308/PortableRuntimeIdentifierGraph.json"
       }
     }
   },

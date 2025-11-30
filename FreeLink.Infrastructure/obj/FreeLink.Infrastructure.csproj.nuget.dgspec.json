@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Adriano\\OneDrive\\Documentos\\GitHub\\FreeLink\\FreeLink.Infrastructure\\FreeLink.Infrastructure.csproj": {}
+    "D:\\FreeLink\\FreeLink\\FreeLink.Infrastructure\\FreeLink.Infrastructure.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Adriano\\OneDrive\\Documentos\\GitHub\\FreeLink\\FreeLink.Application\\FreeLink.Application.csproj": {
+    "D:\\FreeLink\\FreeLink\\FreeLink.Application\\FreeLink.Application.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Adriano\\OneDrive\\Documentos\\GitHub\\FreeLink\\FreeLink.Application\\FreeLink.Application.csproj",
+        "projectUniqueName": "D:\\FreeLink\\FreeLink\\FreeLink.Application\\FreeLink.Application.csproj",
         "projectName": "FreeLink.Application",
-        "projectPath": "C:\\Users\\Adriano\\OneDrive\\Documentos\\GitHub\\FreeLink\\FreeLink.Application\\FreeLink.Application.csproj",
-        "packagesPath": "C:\\Users\\Adriano\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Adriano\\OneDrive\\Documentos\\GitHub\\FreeLink\\FreeLink.Application\\obj\\",
+        "projectPath": "D:\\FreeLink\\FreeLink\\FreeLink.Application\\FreeLink.Application.csproj",
+        "packagesPath": "C:\\Users\\USUARIO\\.nuget\\packages\\",
+        "outputPath": "D:\\FreeLink\\FreeLink\\FreeLink.Application\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Adriano\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "C:\\Users\\USUARIO\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net9.0"
@@ -26,8 +26,8 @@
           "net9.0": {
             "targetAlias": "net9.0",
             "projectReferences": {
-              "C:\\Users\\Adriano\\OneDrive\\Documentos\\GitHub\\FreeLink\\FreeLink.Domain\\FreeLink.Domain.csproj": {
-                "projectPath": "C:\\Users\\Adriano\\OneDrive\\Documentos\\GitHub\\FreeLink\\FreeLink.Domain\\FreeLink.Domain.csproj"
+              "D:\\FreeLink\\FreeLink\\FreeLink.Domain\\FreeLink.Domain.csproj": {
+                "projectPath": "D:\\FreeLink\\FreeLink\\FreeLink.Domain\\FreeLink.Domain.csproj"
               }
             }
           }
@@ -85,21 +85,21 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.305/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.308/PortableRuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\Adriano\\OneDrive\\Documentos\\GitHub\\FreeLink\\FreeLink.Domain\\FreeLink.Domain.csproj": {
+    "D:\\FreeLink\\FreeLink\\FreeLink.Domain\\FreeLink.Domain.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Adriano\\OneDrive\\Documentos\\GitHub\\FreeLink\\FreeLink.Domain\\FreeLink.Domain.csproj",
+        "projectUniqueName": "D:\\FreeLink\\FreeLink\\FreeLink.Domain\\FreeLink.Domain.csproj",
         "projectName": "FreeLink.Domain",
-        "projectPath": "C:\\Users\\Adriano\\OneDrive\\Documentos\\GitHub\\FreeLink\\FreeLink.Domain\\FreeLink.Domain.csproj",
-        "packagesPath": "C:\\Users\\Adriano\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Adriano\\OneDrive\\Documentos\\GitHub\\FreeLink\\FreeLink.Domain\\obj\\",
+        "projectPath": "D:\\FreeLink\\FreeLink\\FreeLink.Domain\\FreeLink.Domain.csproj",
+        "packagesPath": "C:\\Users\\USUARIO\\.nuget\\packages\\",
+        "outputPath": "D:\\FreeLink\\FreeLink\\FreeLink.Domain\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Adriano\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "C:\\Users\\USUARIO\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net9.0"
@@ -150,21 +150,21 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.305/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.308/PortableRuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\Adriano\\OneDrive\\Documentos\\GitHub\\FreeLink\\FreeLink.Infrastructure\\FreeLink.Infrastructure.csproj": {
+    "D:\\FreeLink\\FreeLink\\FreeLink.Infrastructure\\FreeLink.Infrastructure.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Adriano\\OneDrive\\Documentos\\GitHub\\FreeLink\\FreeLink.Infrastructure\\FreeLink.Infrastructure.csproj",
+        "projectUniqueName": "D:\\FreeLink\\FreeLink\\FreeLink.Infrastructure\\FreeLink.Infrastructure.csproj",
         "projectName": "FreeLink.Infrastructure",
-        "projectPath": "C:\\Users\\Adriano\\OneDrive\\Documentos\\GitHub\\FreeLink\\FreeLink.Infrastructure\\FreeLink.Infrastructure.csproj",
-        "packagesPath": "C:\\Users\\Adriano\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Adriano\\OneDrive\\Documentos\\GitHub\\FreeLink\\FreeLink.Infrastructure\\obj\\",
+        "projectPath": "D:\\FreeLink\\FreeLink\\FreeLink.Infrastructure\\FreeLink.Infrastructure.csproj",
+        "packagesPath": "C:\\Users\\USUARIO\\.nuget\\packages\\",
+        "outputPath": "D:\\FreeLink\\FreeLink\\FreeLink.Infrastructure\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Adriano\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "C:\\Users\\USUARIO\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net9.0"
@@ -176,11 +176,11 @@
           "net9.0": {
             "targetAlias": "net9.0",
             "projectReferences": {
-              "C:\\Users\\Adriano\\OneDrive\\Documentos\\GitHub\\FreeLink\\FreeLink.Application\\FreeLink.Application.csproj": {
-                "projectPath": "C:\\Users\\Adriano\\OneDrive\\Documentos\\GitHub\\FreeLink\\FreeLink.Application\\FreeLink.Application.csproj"
+              "D:\\FreeLink\\FreeLink\\FreeLink.Application\\FreeLink.Application.csproj": {
+                "projectPath": "D:\\FreeLink\\FreeLink\\FreeLink.Application\\FreeLink.Application.csproj"
               },
-              "C:\\Users\\Adriano\\OneDrive\\Documentos\\GitHub\\FreeLink\\FreeLink.Domain\\FreeLink.Domain.csproj": {
-                "projectPath": "C:\\Users\\Adriano\\OneDrive\\Documentos\\GitHub\\FreeLink\\FreeLink.Domain\\FreeLink.Domain.csproj"
+              "D:\\FreeLink\\FreeLink\\FreeLink.Domain\\FreeLink.Domain.csproj": {
+                "projectPath": "D:\\FreeLink\\FreeLink\\FreeLink.Domain\\FreeLink.Domain.csproj"
               }
             }
           }
@@ -229,6 +229,10 @@
               "target": "Package",
               "version": "[9.0.0, )"
             },
+            "QuestPDF": {
+              "target": "Package",
+              "version": "[2025.7.4, )"
+            },
             "System.IdentityModel.Tokens.Jwt": {
               "target": "Package",
               "version": "[8.0.1, )"
@@ -250,7 +254,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.305/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.308/PortableRuntimeIdentifierGraph.json"
         }
       }
     }
