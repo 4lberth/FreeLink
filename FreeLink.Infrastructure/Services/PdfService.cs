@@ -1,6 +1,5 @@
-﻿using FreeLink.Application.Contracts;
+﻿using FreeLink.Domain.Ports;
 using FreeLink.Domain.Entities;
-using FreeLink.Domain.Ports;
 using QuestPDF.Fluent;
 using QuestPDF.Helpers;
 using QuestPDF.Infrastructure;
@@ -82,7 +81,7 @@ public class PdfService : IPdfService
 
                     column.Item().Text(text =>
                     {
-                        text.Span("FECHA DE GENERACIÓN: ").Bold();
+                        text.Span("FECHA DE GENERACION: ").Bold();
                         text.Span(contract.GeneratedAt.ToString("dd/MM/yyyy"));
                     });
 
@@ -117,7 +116,7 @@ public class PdfService : IPdfService
 
                         table.Header(header =>
                         {
-                            header.Cell().Background(Colors.Grey.Lighten2).Padding(5).Text("Descripción").Bold();
+                            header.Cell().Background(Colors.Grey.Lighten2).Padding(5).Text("Descripcion").Bold();
                             header.Cell().Background(Colors.Grey.Lighten2).Padding(5).Text("Monto").Bold();
                         });
 
@@ -140,7 +139,7 @@ public class PdfService : IPdfService
                             column.Item().Text(text =>
                             {
                                 text.Span($"• {milestone.MilestoneName}").Bold();
-                                text.Span($" ({milestone.EstimatedDuration} días)");
+                                text.Span($" ({milestone.EstimatedDuration} dias)");
                                 if (!string.IsNullOrEmpty(milestone.Description))
                                     text.Span($" - {milestone.Description}");
                             });
@@ -153,7 +152,7 @@ public class PdfService : IPdfService
                         column.Item().PaddingTop(10).Text("ENTREGABLES").Bold().FontSize(14);
                         foreach (var item in deliverables.OrderBy(d => d.ItemOrder))
                         {
-                            column.Item().Text($"• {item.DeliverableName}");
+                            column.Item().Text($"  {item.DeliverableName}");
                         }
                     }
 
@@ -179,7 +178,7 @@ public class PdfService : IPdfService
                     .AlignCenter()
                     .Text(text =>
                     {
-                        text.Span("Página ");
+                        text.Span("Pagina ");
                         text.CurrentPageNumber();
                         text.Span(" de ");
                         text.TotalPages();
@@ -193,8 +192,29 @@ public class PdfService : IPdfService
         var pdfBytes = stream.ToArray();
 
         var fileName = $"contract_{contract.ContractId}_{DateTime.Now:yyyyMMddHHmmss}.pdf";
-        var publicUrl = await _supabaseStorage.UploadPdfAsync(pdfBytes, fileName);
+        var publicUrl = await _supabaseStorage.UploadPdfAsync(pdfBytes, fileName, "contracts");
 
         return publicUrl;
+    }
+
+    public byte[] GeneratePdfFromHtml(string htmlContent)
+    {
+        // Strip HTML tags to get plain text
+        var plainText = System.Text.RegularExpressions.Regex.Replace(htmlContent, "<.*?>", string.Empty);
+        
+        var document = Document.Create(container =>
+        {
+            container.Page(page =>
+            {
+                page.Size(PageSizes.A4);
+                page.Margin(2, Unit.Centimetre);
+                page.PageColor(Colors.White);
+                page.DefaultTextStyle(x => x.FontSize(10));
+                
+                page.Content().Text(plainText);
+            });
+        });
+
+        return document.GeneratePdf();
     }
 }

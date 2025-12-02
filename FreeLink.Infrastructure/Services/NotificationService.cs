@@ -1,5 +1,4 @@
-﻿using FreeLink.Application.Contracts;
-using FreeLink.Domain.Entities;
+﻿using FreeLink.Domain.Entities;
 using FreeLink.Domain.Ports;
 
 namespace FreeLink.Infrastructure.Services;

@@ -1,4 +1,4 @@
-using FreeLink.Application.Contracts;
+using FreeLink.Domain.Ports;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Hosting;
 
@@ -6,36 +6,43 @@ namespace FreeLink.Infrastructure.Services;
 
 public class FileService : IFileService
 {
-    private readonly IHostEnvironment _environment;
+    private readonly ISupabaseStorageService _supabaseStorageService;
+    private const string DefaultBucket = "project-files";
 
-    public FileService(IHostEnvironment environment)
+    public FileService(ISupabaseStorageService supabaseStorageService)
     {
-        _environment = environment;
+        _supabaseStorageService = supabaseStorageService;
     }
 
     public async Task<string> SaveFileAsync(IFormFile file, string folder)
     {
+        return await SaveFileAsync(file, folder, DefaultBucket);
+    }
+
+    public async Task<string> SaveFileAsync(IFormFile file, string folder, string bucketName)
+    {
         try
         {
-            // Crear carpeta si no existe
-            var uploadsPath = Path.Combine(_environment.ContentRootPath, "uploads", folder);
-            if (!Directory.Exists(uploadsPath))
-            {
-                Directory.CreateDirectory(uploadsPath);
-            }
-
             // Generar nombre único para el archivo
             var uniqueFileName = $"{Guid.NewGuid()}_{file.FileName}";
-            var filePath = Path.Combine(uploadsPath, uniqueFileName);
 
-            // Guardar archivo
-            using (var stream = new FileStream(filePath, FileMode.Create))
+            // Convertir IFormFile a byte array
+            byte[] fileBytes;
+            using (var memoryStream = new MemoryStream())
             {
-                await file.CopyToAsync(stream);
+                await file.CopyToAsync(memoryStream);
+                fileBytes = memoryStream.ToArray();
             }
 
-            // Retornar ruta relativa
-            return Path.Combine(folder, uniqueFileName).Replace("\\", "/");
+            // Subir a Supabase Storage
+            var publicUrl = await _supabaseStorageService.UploadFileAsync(
+                fileBytes,
+                uniqueFileName,
+                bucketName,
+                folder
+            );
+
+            return publicUrl;
         }
         catch (Exception ex)
         {
@@ -47,15 +54,8 @@ public class FileService : IFileService
     {
         try
         {
-            var fullPath = Path.Combine(_environment.ContentRootPath, "uploads", filePath);
-            
-            if (File.Exists(fullPath))
-            {
-                await Task.Run(() => File.Delete(fullPath));
-                return true;
-            }
-
-            return false;
+            await _supabaseStorageService.DeleteFileAsync(filePath, DefaultBucket);
+            return true;
         }
         catch (Exception)
         {

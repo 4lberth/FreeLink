@@ -1,11 +1,13 @@
 using Microsoft.AspNetCore.Http;
 
-namespace FreeLink.Application.Contracts;
+namespace FreeLink.Domain.Ports;
 
 public interface IFileService
 {
 
     Task<string> SaveFileAsync(IFormFile file, string folder);
+
+    Task<string> SaveFileAsync(IFormFile file, string folder, string bucketName);
 
     Task<bool> DeleteFileAsync(string filePath);
 

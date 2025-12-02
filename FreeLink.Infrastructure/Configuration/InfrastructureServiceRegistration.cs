@@ -1,5 +1,4 @@
-﻿using FreeLink.Application.Contracts;
-using FreeLink.Domain.Ports;
+﻿using FreeLink.Domain.Ports;
 using FreeLink.Infrastructure.Adapters;
 using FreeLink.Infrastructure.Data.Context;
 using FreeLink.Infrastructure.Services;
@@ -22,19 +21,20 @@ public static class InfrastructureServiceRegistration
             options.UseMySql(connectionString, ServerVersion.AutoDetect(connectionString));
         });
         
-        // Registrar patrón Repository y UnitOfWork
+        // Registrar patr n Repository y UnitOfWork
         services.AddScoped(typeof(IRepository<>), typeof(Repository<>));
         services.AddScoped<IUnitOfWork, UnitOfWork>();
         
         // Servicios de infraestructura
-        services.AddScoped<IJwtTokenGenerator, JwtTokenGenerator>(); 
+        services.AddScoped<IJwtTokenGenerator, JwtTokenGenerator>();
         services.AddScoped<IFileService, FileService>();
         services.AddScoped<INotificationService, NotificationService>();
         
-        // ✅ Supabase Storage Service
+
+        // ? Supabase Storage Service
         services.AddScoped<ISupabaseStorageService, SupabaseStorageService>();
-        
-        // ✅ PDF Service (usa Supabase Storage)
+
+        // ? PDF Service (usa Supabase Storage)
         services.AddScoped<IPdfService, PdfService>();
 
         return services;
