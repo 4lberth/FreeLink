@@ -30,6 +30,7 @@ public static class InfrastructureServiceRegistration
         services.AddScoped<IFileService, FileService>();
         services.AddScoped<INotificationService, NotificationService>();
         services.AddScoped<IWalletService, WalletService>();
+        services.AddScoped<IAdminActivityLogger, AdminActivityLoggerService>();
 
         // ? Supabase Storage Service
         services.AddScoped<ISupabaseStorageService, SupabaseStorageService>();
