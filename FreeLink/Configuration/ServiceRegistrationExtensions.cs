@@ -12,8 +12,24 @@ public static class ServiceRegistrationExtensions
     public static IServiceCollection AddApiServices(this IServiceCollection services, IConfiguration configuration)
     {
         services.AddApplicationServices();
-        services.AddInfrastructureServices(configuration); 
+        services.AddInfrastructureServices(configuration);
         services.AddControllers();
+
+        // Configuración de CORS
+        services.AddCors(options =>
+        {
+            options.AddPolicy("AllowSpecificOrigins", builder =>
+            {
+                var allowedOrigins = configuration.GetSection("Cors:AllowedOrigins").Get<string[]>()
+                    ?? new[] { "http://localhost:3000", "http://localhost:5173" };
+
+                builder.WithOrigins(allowedOrigins)
+                    .AllowAnyMethod()
+                    .AllowAnyHeader()
+                    .AllowCredentials()
+                    .WithExposedHeaders("Content-Disposition"); // Para descarga de archivos
+            });
+        });
 
 
         // Autenticación JWT

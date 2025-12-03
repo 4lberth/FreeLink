@@ -62,7 +62,7 @@ public class RejectVerificationHandler : IRequestHandler<RejectVerificationComma
             }
 
             // Actualizar verificación
-            verification.VerificationStatus = "Rechazado";
+            verification.VerificationStatus = "Rechazada";
             verification.ReviewedAt = DateTime.UtcNow;
             verification.ReviewedBy = request.RequestingAdminId;
             verification.RejectionReason = request.RejectionReason;

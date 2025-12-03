@@ -87,11 +87,6 @@ public class UpdateUserProfileCommandHandler : IRequestHandler<UpdateUserProfile
                 userProfile.Bio = request.Bio;
             }
 
-            if (request.ProfilePictureUrl != null) // Permitir vacío
-            {
-                userProfile.ProfilePicture = request.ProfilePictureUrl;
-            }
-
             // 5. Guardar cambios
             await _unitOfWork.Repository<Userprofile>().Update(userProfile);
             await _unitOfWork.Complete();

@@ -163,7 +163,6 @@ public class UsersController : ControllerBase
             Country = request.Country,
             City = request.City,
             Bio = request.Bio,
-            ProfilePictureUrl = request.ProfilePictureUrl,
             RequestingUserId = int.Parse(requestingUserId),
             RequestingUserRole = requestingUserRole ?? string.Empty
         };

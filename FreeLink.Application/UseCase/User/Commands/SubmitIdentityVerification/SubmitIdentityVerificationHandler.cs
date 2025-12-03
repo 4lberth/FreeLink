@@ -40,14 +40,14 @@ public class SubmitIdentityVerificationHandler : IRequestHandler<SubmitIdentityV
                 .GetAsync(v => v.UserId == request.UserId);
 
             var pendingOrApproved = existingVerifications.FirstOrDefault(v =>
-                v.VerificationStatus == "Pendiente" || v.VerificationStatus == "Aprobado");
+                v.VerificationStatus == "Pendiente" || v.VerificationStatus == "Aprobada");
 
             if (pendingOrApproved != null)
             {
                 return new SubmitIdentityVerificationResponse
                 {
                     Success = false,
-                    Message = pendingOrApproved.VerificationStatus == "Aprobado"
+                    Message = pendingOrApproved.VerificationStatus == "Aprobada"
                         ? "Ya tienes una verificación aprobada"
                         : "Ya tienes una solicitud de verificación pendiente"
                 };

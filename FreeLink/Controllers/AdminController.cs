@@ -27,7 +27,9 @@ using FreeLink.Application.UseCase.Admin.Queries.GetDashboardStats;
 using FreeLink.Application.UseCase.Admin.Queries.GetDisputeDetails;
 using FreeLink.Application.UseCase.Admin.Queries.GetOpenTickets;
 using FreeLink.Application.UseCase.Admin.Queries.GetPendingDisputes;
+using FreeLink.Application.UseCase.Admin.Queries.GetAllReports;
 using FreeLink.Application.UseCase.Admin.Queries.GetPendingReports;
+using FreeLink.Application.UseCase.Admin.Queries.GetAllVerifications;
 using FreeLink.Application.UseCase.Admin.Queries.GetPendingVerifications;
 using FreeLink.Application.UseCase.Admin.Queries.GetReportDetails;
 using FreeLink.Application.UseCase.Admin.Queries.GetSystemSetting;
@@ -294,6 +296,34 @@ public class AdminController : ControllerBase
         return Ok(response);
     }
 
+    /// Obtener todas las verificaciones con filtro opcional por estado
+    [HttpGet("verifications")]
+    public async Task<IActionResult> GetAllVerifications([FromQuery] string? status = null)
+    {
+        var requestingUserId = User.Claims.FirstOrDefault(c =>
+            c.Type == "userId" || c.Type == ClaimTypes.NameIdentifier)?.Value;
+
+        if (string.IsNullOrEmpty(requestingUserId))
+        {
+            return Unauthorized(new { success = false, message = "Token inválido" });
+        }
+
+        var query = new GetAllVerificationsQuery
+        {
+            RequestingAdminId = int.Parse(requestingUserId),
+            StatusFilter = status
+        };
+
+        var response = await _mediator.Send(query);
+
+        if (!response.Success)
+        {
+            return BadRequest(response);
+        }
+
+        return Ok(response);
+    }
+
     /// Obtener detalles completos de una verificación
     [HttpGet("verifications/{verificationId}")]
     public async Task<IActionResult> GetVerificationDetails(int verificationId)
@@ -402,6 +432,41 @@ public class AdminController : ControllerBase
             Page = page,
             PageSize = pageSize,
             ReportType = reportType
+        };
+
+        var response = await _mediator.Send(query);
+
+        if (!response.Success)
+        {
+            return BadRequest(response);
+        }
+
+        return Ok(response);
+    }
+
+    /// Obtener todos los reportes con filtros opcionales
+    [HttpGet("reports")]
+    public async Task<IActionResult> GetAllReports(
+        [FromQuery] string? status = null,
+        [FromQuery] string? reportType = null,
+        [FromQuery] int page = 1,
+        [FromQuery] int pageSize = 20)
+    {
+        var requestingUserId = User.Claims.FirstOrDefault(c =>
+            c.Type == "userId" || c.Type == ClaimTypes.NameIdentifier)?.Value;
+
+        if (string.IsNullOrEmpty(requestingUserId))
+        {
+            return Unauthorized(new { success = false, message = "Token inválido" });
+        }
+
+        var query = new GetAllReportsQuery
+        {
+            RequestingAdminId = int.Parse(requestingUserId),
+            StatusFilter = status,
+            ReportType = reportType,
+            Page = page,
+            PageSize = pageSize
         };
 
         var response = await _mediator.Send(query);

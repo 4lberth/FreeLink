@@ -67,7 +67,7 @@ public class DismissReportHandler : IRequestHandler<DismissReportCommand, Dismis
             }
 
             // Actualizar el reporte
-            report.ReportStatus = "Desestimado";
+            report.ReportStatus = "Rechazado";
             report.ReviewedBy = request.RequestingAdminId;
             report.ReviewedAt = DateTime.UtcNow;
             report.Resolution = "No Aplica";

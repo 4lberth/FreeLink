@@ -52,7 +52,7 @@ public class ApproveVerificationHandler : IRequestHandler<ApproveVerificationCom
             }
 
             // Actualizar verificación
-            verification.VerificationStatus = "Aprobado";
+            verification.VerificationStatus = "Aprobada";
             verification.ReviewedAt = DateTime.UtcNow;
             verification.ReviewedBy = request.RequestingAdminId;
 
