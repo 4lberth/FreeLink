@@ -1,15 +1,10 @@
 ﻿using FreeLink.Domain.Entities;
 using Microsoft.EntityFrameworkCore;
-using Pomelo.EntityFrameworkCore.MySql.Scaffolding.Internal;
 
 namespace FreeLink.Infrastructure.Data.Context;
 
 public partial class FreeLinkContext : DbContext
 {
-    public FreeLinkContext()
-    {
-    }
-
     public FreeLinkContext(DbContextOptions<FreeLinkContext> options)
         : base(options)
     {
@@ -95,13 +90,9 @@ public partial class FreeLinkContext : DbContext
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
-        modelBuilder
-            .UseCollation("utf8mb4_unicode_ci")
-            .HasCharSet("utf8mb4");
-
         modelBuilder.Entity<Adminactivitylog>(entity =>
         {
-            entity.HasKey(e => e.LogId).HasName("PRIMARY");
+            entity.HasKey(e => e.LogId);
 
             entity.ToTable("adminactivitylogs");
 
@@ -111,17 +102,12 @@ public partial class FreeLinkContext : DbContext
 
             entity.HasIndex(e => new { e.AdminId, e.CreatedAt }, "idx_admin_date");
 
-            entity.Property(e => e.LogId).HasColumnType("int(11)");
-            entity.Property(e => e.ActionDescription).HasColumnType("text");
             entity.Property(e => e.ActionType).HasMaxLength(100);
-            entity.Property(e => e.AdminId).HasColumnType("int(11)");
             entity.Property(e => e.CreatedAt)
-                .HasDefaultValueSql("current_timestamp()")
-                .HasColumnType("timestamp");
+                .HasDefaultValueSql("CURRENT_TIMESTAMP")
+                ;
             entity.Property(e => e.IpAddress).HasMaxLength(45);
-            entity.Property(e => e.TargetResourceId).HasColumnType("int(11)");
             entity.Property(e => e.TargetResourceType).HasMaxLength(50);
-            entity.Property(e => e.TargetUserId).HasColumnType("int(11)");
 
             entity.HasOne(d => d.Admin).WithMany(p => p.AdminactivitylogAdmins)
                 .HasForeignKey(d => d.AdminId)
@@ -135,7 +121,7 @@ public partial class FreeLinkContext : DbContext
 
         modelBuilder.Entity<Contentreport>(entity =>
         {
-            entity.HasKey(e => e.ReportId).HasName("PRIMARY");
+            entity.HasKey(e => e.ReportId);
 
             entity.ToTable("contentreports");
 
@@ -151,22 +137,13 @@ public partial class FreeLinkContext : DbContext
 
             entity.HasIndex(e => e.ReportStatus, "idx_status");
 
-            entity.Property(e => e.ReportId).HasColumnType("int(11)");
             entity.Property(e => e.CreatedAt)
-                .HasDefaultValueSql("current_timestamp()")
-                .HasColumnType("timestamp");
-            entity.Property(e => e.ReportDescription).HasColumnType("text");
+                .HasDefaultValueSql("CURRENT_TIMESTAMP")
+                ;
             entity.Property(e => e.ReportReason).HasMaxLength(255);
             entity.Property(e => e.ReportStatus)
                 .HasDefaultValueSql("'Pendiente'")
-                .HasColumnType("enum('Pendiente','En Revisión','Resuelto','Rechazado')");
-            entity.Property(e => e.ReportedMessageId).HasColumnType("int(11)");
-            entity.Property(e => e.ReportedProjectId).HasColumnType("int(11)");
-            entity.Property(e => e.ReportedUserId).HasColumnType("int(11)");
-            entity.Property(e => e.ReporterId).HasColumnType("int(11)");
-            entity.Property(e => e.Resolution).HasColumnType("text");
-            entity.Property(e => e.ReviewedAt).HasColumnType("timestamp");
-            entity.Property(e => e.ReviewedBy).HasColumnType("int(11)");
+                ;
 
             entity.HasOne(d => d.ReportedMessage).WithMany(p => p.Contentreports)
                 .HasForeignKey(d => d.ReportedMessageId)
@@ -195,7 +172,7 @@ public partial class FreeLinkContext : DbContext
 
         modelBuilder.Entity<Contract>(entity =>
         {
-            entity.HasKey(e => e.ContractId).HasName("PRIMARY");
+            entity.HasKey(e => e.ContractId);
 
             entity.ToTable("contracts");
 
@@ -209,20 +186,13 @@ public partial class FreeLinkContext : DbContext
 
             entity.HasIndex(e => e.ContractStatus, "idx_status");
 
-            entity.Property(e => e.ContractId).HasColumnType("int(11)");
-            entity.Property(e => e.ClientId).HasColumnType("int(11)");
-            entity.Property(e => e.ClientSignedAt).HasColumnType("timestamp");
             entity.Property(e => e.ContractPdfUrl).HasMaxLength(500);
             entity.Property(e => e.ContractStatus)
                 .HasDefaultValueSql("'Pendiente Firma'")
-                .HasColumnType("enum('Pendiente Firma','Firmado','En Ejecución','Completado','Cancelado')");
-            entity.Property(e => e.FreelancerId).HasColumnType("int(11)");
-            entity.Property(e => e.FreelancerSignedAt).HasColumnType("timestamp");
+                ;
             entity.Property(e => e.GeneratedAt)
-                .HasDefaultValueSql("current_timestamp()")
-                .HasColumnType("timestamp");
-            entity.Property(e => e.ProjectId).HasColumnType("int(11)");
-            entity.Property(e => e.ProposalId).HasColumnType("int(11)");
+                .HasDefaultValueSql("CURRENT_TIMESTAMP")
+                ;
             entity.Property(e => e.TotalAmount).HasPrecision(12, 2);
 
             entity.HasOne(d => d.Client).WithMany(p => p.ContractClients)
@@ -244,7 +214,7 @@ public partial class FreeLinkContext : DbContext
 
         modelBuilder.Entity<Contractsignature>(entity =>
         {
-            entity.HasKey(e => e.SignatureId).HasName("PRIMARY");
+            entity.HasKey(e => e.SignatureId);
 
             entity.ToTable("contractsignatures");
 
@@ -252,14 +222,10 @@ public partial class FreeLinkContext : DbContext
 
             entity.HasIndex(e => e.UserId, "UserId");
 
-            entity.Property(e => e.SignatureId).HasColumnType("int(11)");
-            entity.Property(e => e.ContractId).HasColumnType("int(11)");
             entity.Property(e => e.IpAddress).HasMaxLength(45);
-            entity.Property(e => e.SignatureData).HasColumnType("text");
             entity.Property(e => e.SignedAt)
-                .HasDefaultValueSql("current_timestamp()")
-                .HasColumnType("timestamp");
-            entity.Property(e => e.UserId).HasColumnType("int(11)");
+                .HasDefaultValueSql("CURRENT_TIMESTAMP")
+                ;
 
             entity.HasOne(d => d.Contract).WithMany(p => p.Contractsignatures)
                 .HasForeignKey(d => d.ContractId)
@@ -272,21 +238,18 @@ public partial class FreeLinkContext : DbContext
 
         modelBuilder.Entity<Deliverablefile>(entity =>
         {
-            entity.HasKey(e => e.FileId).HasName("PRIMARY");
+            entity.HasKey(e => e.FileId);
 
             entity.ToTable("deliverablefiles");
 
             entity.HasIndex(e => e.DeliverableId, "DeliverableId");
 
-            entity.Property(e => e.FileId).HasColumnType("int(11)");
-            entity.Property(e => e.DeliverableId).HasColumnType("int(11)");
             entity.Property(e => e.FileName).HasMaxLength(255);
-            entity.Property(e => e.FileSize).HasColumnType("bigint(20)");
             entity.Property(e => e.FileType).HasMaxLength(50);
             entity.Property(e => e.FileUrl).HasMaxLength(500);
             entity.Property(e => e.UploadedAt)
-                .HasDefaultValueSql("current_timestamp()")
-                .HasColumnType("timestamp");
+                .HasDefaultValueSql("CURRENT_TIMESTAMP")
+                ;
 
             entity.HasOne(d => d.Deliverable).WithMany(p => p.Deliverablefiles)
                 .HasForeignKey(d => d.DeliverableId)
@@ -295,7 +258,7 @@ public partial class FreeLinkContext : DbContext
 
         modelBuilder.Entity<Dispute>(entity =>
         {
-            entity.HasKey(e => e.DisputeId).HasName("PRIMARY");
+            entity.HasKey(e => e.DisputeId);
 
             entity.ToTable("disputes");
 
@@ -309,21 +272,13 @@ public partial class FreeLinkContext : DbContext
 
             entity.HasIndex(e => e.DisputeStatus, "idx_status");
 
-            entity.Property(e => e.DisputeId).HasColumnType("int(11)");
             entity.Property(e => e.CreatedAt)
-                .HasDefaultValueSql("current_timestamp()")
-                .HasColumnType("timestamp");
-            entity.Property(e => e.DisputeDescription).HasColumnType("text");
+                .HasDefaultValueSql("CURRENT_TIMESTAMP")
+                ;
             entity.Property(e => e.DisputeReason).HasMaxLength(255);
             entity.Property(e => e.DisputeStatus)
                 .HasDefaultValueSql("'Abierta'")
-                .HasColumnType("enum('Abierta','En Mediación','Resuelta','Cerrada')");
-            entity.Property(e => e.InitiatorId).HasColumnType("int(11)");
-            entity.Property(e => e.MediatorId).HasColumnType("int(11)");
-            entity.Property(e => e.ProjectId).HasColumnType("int(11)");
-            entity.Property(e => e.Resolution).HasColumnType("text");
-            entity.Property(e => e.ResolvedAt).HasColumnType("timestamp");
-            entity.Property(e => e.RespondentId).HasColumnType("int(11)");
+                ;
 
             entity.HasOne(d => d.Initiator).WithMany(p => p.DisputeInitiators)
                 .HasForeignKey(d => d.InitiatorId)
@@ -345,7 +300,7 @@ public partial class FreeLinkContext : DbContext
 
         modelBuilder.Entity<Disputemessage>(entity =>
         {
-            entity.HasKey(e => e.DisputeMessageId).HasName("PRIMARY");
+            entity.HasKey(e => e.DisputeMessageId);
 
             entity.ToTable("disputemessages");
 
@@ -353,13 +308,9 @@ public partial class FreeLinkContext : DbContext
 
             entity.HasIndex(e => e.SenderId, "SenderId");
 
-            entity.Property(e => e.DisputeMessageId).HasColumnType("int(11)");
-            entity.Property(e => e.DisputeId).HasColumnType("int(11)");
-            entity.Property(e => e.MessageText).HasColumnType("text");
-            entity.Property(e => e.SenderId).HasColumnType("int(11)");
             entity.Property(e => e.SentAt)
-                .HasDefaultValueSql("current_timestamp()")
-                .HasColumnType("timestamp");
+                .HasDefaultValueSql("CURRENT_TIMESTAMP")
+                ;
 
             entity.HasOne(d => d.Dispute).WithMany(p => p.Disputemessages)
                 .HasForeignKey(d => d.DisputeId)
@@ -372,7 +323,7 @@ public partial class FreeLinkContext : DbContext
 
         modelBuilder.Entity<Escrowaccount>(entity =>
         {
-            entity.HasKey(e => e.EscrowId).HasName("PRIMARY");
+            entity.HasKey(e => e.EscrowId);
 
             entity.ToTable("escrowaccounts");
 
@@ -384,15 +335,9 @@ public partial class FreeLinkContext : DbContext
 
             entity.HasIndex(e => e.EscrowStatus, "idx_status");
 
-            entity.Property(e => e.EscrowId).HasColumnType("int(11)");
-            entity.Property(e => e.ClientId).HasColumnType("int(11)");
-            entity.Property(e => e.DepositedAt).HasColumnType("timestamp");
             entity.Property(e => e.EscrowStatus)
                 .HasDefaultValueSql("'Pendiente'")
-                .HasColumnType("enum('Pendiente','Depositado','Retenido','Liberado','Reembolsado')");
-            entity.Property(e => e.FreelancerId).HasColumnType("int(11)");
-            entity.Property(e => e.ProjectId).HasColumnType("int(11)");
-            entity.Property(e => e.ReleasedAt).HasColumnType("timestamp");
+                ;
             entity.Property(e => e.TotalAmount).HasPrecision(12, 2);
 
             entity.HasOne(d => d.Client).WithMany(p => p.EscrowaccountClients)
@@ -410,22 +355,21 @@ public partial class FreeLinkContext : DbContext
 
         modelBuilder.Entity<Freelancerprofile>(entity =>
         {
-            entity.HasKey(e => e.FreelancerProfileId).HasName("PRIMARY");
+            entity.HasKey(e => e.FreelancerProfileId);
 
             entity.ToTable("freelancerprofiles");
 
             entity.HasIndex(e => e.UserId, "UserId").IsUnique();
 
-            entity.Property(e => e.FreelancerProfileId).HasColumnType("int(11)");
             entity.Property(e => e.AvailabilityStatus)
                 .HasDefaultValueSql("'Disponible'")
-                .HasColumnType("enum('Disponible','Ocupado','No disponible')");
+                ;
             entity.Property(e => e.AverageRating)
                 .HasPrecision(3, 2)
                 .HasDefaultValueSql("'0.00'");
             entity.Property(e => e.CompletedProjects)
                 .HasDefaultValueSql("'0'")
-                .HasColumnType("int(11)");
+                ;
             entity.Property(e => e.HourlyRate).HasPrecision(10, 2);
             entity.Property(e => e.Title).HasMaxLength(255);
             entity.Property(e => e.TotalEarnings)
@@ -433,9 +377,7 @@ public partial class FreeLinkContext : DbContext
                 .HasDefaultValueSql("'0.00'");
             entity.Property(e => e.TotalReviews)
                 .HasDefaultValueSql("'0'")
-                .HasColumnType("int(11)");
-            entity.Property(e => e.UserId).HasColumnType("int(11)");
-            entity.Property(e => e.YearsOfExperience).HasColumnType("int(11)");
+                ;
 
             entity.HasOne(d => d.User).WithOne(p => p.Freelancerprofile)
                 .HasForeignKey<Freelancerprofile>(d => d.UserId)
@@ -444,7 +386,7 @@ public partial class FreeLinkContext : DbContext
 
         modelBuilder.Entity<Freelancerskill>(entity =>
         {
-            entity.HasKey(e => e.FreelancerSkillId).HasName("PRIMARY");
+            entity.HasKey(e => e.FreelancerSkillId);
 
             entity.ToTable("freelancerskills");
 
@@ -452,12 +394,9 @@ public partial class FreeLinkContext : DbContext
 
             entity.HasIndex(e => new { e.UserId, e.SkillId }, "unique_user_skill").IsUnique();
 
-            entity.Property(e => e.FreelancerSkillId).HasColumnType("int(11)");
             entity.Property(e => e.ProficiencyLevel)
                 .HasDefaultValueSql("'Intermedio'")
-                .HasColumnType("enum('Básico','Intermedio','Avanzado','Experto')");
-            entity.Property(e => e.SkillId).HasColumnType("int(11)");
-            entity.Property(e => e.UserId).HasColumnType("int(11)");
+                ;
 
             entity.HasOne(d => d.Skill).WithMany(p => p.Freelancerskills)
                 .HasForeignKey(d => d.SkillId)
@@ -470,7 +409,7 @@ public partial class FreeLinkContext : DbContext
 
         modelBuilder.Entity<Identityverification>(entity =>
         {
-            entity.HasKey(e => e.VerificationId).HasName("PRIMARY");
+            entity.HasKey(e => e.VerificationId);
 
             entity.ToTable("identityverifications");
 
@@ -480,22 +419,17 @@ public partial class FreeLinkContext : DbContext
 
             entity.HasIndex(e => e.VerificationStatus, "idx_status");
 
-            entity.Property(e => e.VerificationId).HasColumnType("int(11)");
             entity.Property(e => e.DocumentBackUrl).HasMaxLength(500);
             entity.Property(e => e.DocumentFrontUrl).HasMaxLength(500);
             entity.Property(e => e.DocumentNumber).HasMaxLength(100);
             entity.Property(e => e.DocumentType).HasMaxLength(50);
-            entity.Property(e => e.RejectionReason).HasColumnType("text");
-            entity.Property(e => e.ReviewedAt).HasColumnType("timestamp");
-            entity.Property(e => e.ReviewedBy).HasColumnType("int(11)");
             entity.Property(e => e.SelfieUrl).HasMaxLength(500);
             entity.Property(e => e.SubmittedAt)
-                .HasDefaultValueSql("current_timestamp()")
-                .HasColumnType("timestamp");
-            entity.Property(e => e.UserId).HasColumnType("int(11)");
+                .HasDefaultValueSql("CURRENT_TIMESTAMP")
+                ;
             entity.Property(e => e.VerificationStatus)
                 .HasDefaultValueSql("'Pendiente'")
-                .HasColumnType("enum('Pendiente','Aprobada','Rechazada')");
+                ;
 
             entity.HasOne(d => d.ReviewedByNavigation).WithMany(p => p.IdentityverificationReviewedByNavigations)
                 .HasForeignKey(d => d.ReviewedBy)
@@ -509,21 +443,18 @@ public partial class FreeLinkContext : DbContext
 
         modelBuilder.Entity<Messageattachment>(entity =>
         {
-            entity.HasKey(e => e.AttachmentId).HasName("PRIMARY");
+            entity.HasKey(e => e.AttachmentId);
 
             entity.ToTable("messageattachments");
 
             entity.HasIndex(e => e.MessageId, "MessageId");
 
-            entity.Property(e => e.AttachmentId).HasColumnType("int(11)");
             entity.Property(e => e.FileName).HasMaxLength(255);
-            entity.Property(e => e.FileSize).HasColumnType("bigint(20)");
             entity.Property(e => e.FileType).HasMaxLength(50);
             entity.Property(e => e.FileUrl).HasMaxLength(500);
-            entity.Property(e => e.MessageId).HasColumnType("int(11)");
             entity.Property(e => e.UploadedAt)
-                .HasDefaultValueSql("current_timestamp()")
-                .HasColumnType("timestamp");
+                .HasDefaultValueSql("CURRENT_TIMESTAMP")
+                ;
 
             entity.HasOne(d => d.Message).WithMany(p => p.Messageattachments)
                 .HasForeignKey(d => d.MessageId)
@@ -532,7 +463,7 @@ public partial class FreeLinkContext : DbContext
 
         modelBuilder.Entity<Notification>(entity =>
         {
-            entity.HasKey(e => e.NotificationId).HasName("PRIMARY");
+            entity.HasKey(e => e.NotificationId);
 
             entity.ToTable("notifications");
 
@@ -540,18 +471,13 @@ public partial class FreeLinkContext : DbContext
 
             entity.HasIndex(e => new { e.UserId, e.IsRead }, "idx_user_unread");
 
-            entity.Property(e => e.NotificationId).HasColumnType("int(11)");
             entity.Property(e => e.CreatedAt)
-                .HasDefaultValueSql("current_timestamp()")
-                .HasColumnType("timestamp");
+                .HasDefaultValueSql("CURRENT_TIMESTAMP")
+                ;
             entity.Property(e => e.IsRead).HasDefaultValueSql("'0'");
-            entity.Property(e => e.Message).HasColumnType("text");
             entity.Property(e => e.NotificationType).HasMaxLength(100);
-            entity.Property(e => e.ReadAt).HasColumnType("timestamp");
-            entity.Property(e => e.RelatedResourceId).HasColumnType("int(11)");
             entity.Property(e => e.RelatedResourceType).HasMaxLength(50);
             entity.Property(e => e.Title).HasMaxLength(255);
-            entity.Property(e => e.UserId).HasColumnType("int(11)");
 
             entity.HasOne(d => d.User).WithMany(p => p.Notifications)
                 .HasForeignKey(d => d.UserId)
@@ -560,7 +486,7 @@ public partial class FreeLinkContext : DbContext
 
         modelBuilder.Entity<Platformcommission>(entity =>
         {
-            entity.HasKey(e => e.CommissionId).HasName("PRIMARY");
+            entity.HasKey(e => e.CommissionId);
 
             entity.ToTable("platformcommissions");
 
@@ -568,14 +494,11 @@ public partial class FreeLinkContext : DbContext
 
             entity.HasIndex(e => e.TransactionId, "TransactionId");
 
-            entity.Property(e => e.CommissionId).HasColumnType("int(11)");
             entity.Property(e => e.Amount).HasPrecision(12, 2);
             entity.Property(e => e.CommissionRate).HasPrecision(5, 2);
             entity.Property(e => e.CreatedAt)
-                .HasDefaultValueSql("current_timestamp()")
-                .HasColumnType("timestamp");
-            entity.Property(e => e.ProjectId).HasColumnType("int(11)");
-            entity.Property(e => e.TransactionId).HasColumnType("int(11)");
+                .HasDefaultValueSql("CURRENT_TIMESTAMP")
+                ;
 
             entity.HasOne(d => d.Project).WithMany(p => p.Platformcommissions)
                 .HasForeignKey(d => d.ProjectId)
@@ -588,21 +511,18 @@ public partial class FreeLinkContext : DbContext
 
         modelBuilder.Entity<Portfoliofile>(entity =>
         {
-            entity.HasKey(e => e.FileId).HasName("PRIMARY");
+            entity.HasKey(e => e.FileId);
 
             entity.ToTable("portfoliofiles");
 
             entity.HasIndex(e => e.PortfolioId, "PortfolioId");
 
-            entity.Property(e => e.FileId).HasColumnType("int(11)");
             entity.Property(e => e.FileName).HasMaxLength(255);
-            entity.Property(e => e.FileSize).HasColumnType("bigint(20)");
             entity.Property(e => e.FileType).HasMaxLength(50);
             entity.Property(e => e.FileUrl).HasMaxLength(500);
-            entity.Property(e => e.PortfolioId).HasColumnType("int(11)");
             entity.Property(e => e.UploadedAt)
-                .HasDefaultValueSql("current_timestamp()")
-                .HasColumnType("timestamp");
+                .HasDefaultValueSql("CURRENT_TIMESTAMP")
+                ;
 
             entity.HasOne(d => d.Portfolio).WithMany(p => p.Portfoliofiles)
                 .HasForeignKey(d => d.PortfolioId)
@@ -611,21 +531,18 @@ public partial class FreeLinkContext : DbContext
 
         modelBuilder.Entity<Portfolioitem>(entity =>
         {
-            entity.HasKey(e => e.PortfolioId).HasName("PRIMARY");
+            entity.HasKey(e => e.PortfolioId);
 
             entity.ToTable("portfolioitems");
 
             entity.HasIndex(e => new { e.UserId, e.CompletionDate }, "idx_user_date");
 
-            entity.Property(e => e.PortfolioId).HasColumnType("int(11)");
             entity.Property(e => e.CreatedAt)
-                .HasDefaultValueSql("current_timestamp()")
-                .HasColumnType("timestamp");
-            entity.Property(e => e.Description).HasColumnType("text");
+                .HasDefaultValueSql("CURRENT_TIMESTAMP")
+                ;
             entity.Property(e => e.ProjectUrl).HasMaxLength(255);
             entity.Property(e => e.ThumbnailUrl).HasMaxLength(255);
             entity.Property(e => e.Title).HasMaxLength(255);
-            entity.Property(e => e.UserId).HasColumnType("int(11)");
 
             entity.HasOne(d => d.User).WithMany(p => p.Portfolioitems)
                 .HasForeignKey(d => d.UserId)
@@ -634,7 +551,7 @@ public partial class FreeLinkContext : DbContext
 
         modelBuilder.Entity<Project>(entity =>
         {
-            entity.HasKey(e => e.ProjectId).HasName("PRIMARY");
+            entity.HasKey(e => e.ProjectId);
 
             entity.ToTable("projects");
 
@@ -646,24 +563,18 @@ public partial class FreeLinkContext : DbContext
 
             entity.HasIndex(e => e.ProjectStatus, "idx_status");
 
-            entity.Property(e => e.ProjectId).HasColumnType("int(11)");
-            entity.Property(e => e.AssignedFreelancerId).HasColumnType("int(11)");
             entity.Property(e => e.Budget).HasPrecision(12, 2);
-            entity.Property(e => e.ClientId).HasColumnType("int(11)");
-            entity.Property(e => e.CompletionDate).HasColumnType("timestamp");
             entity.Property(e => e.CreatedAt)
-                .HasDefaultValueSql("current_timestamp()")
-                .HasColumnType("timestamp");
-            entity.Property(e => e.Description).HasColumnType("text");
+                .HasDefaultValueSql("CURRENT_TIMESTAMP")
+                ;
             entity.Property(e => e.ProjectStatus)
                 .HasDefaultValueSql("'Publicado'")
-                .HasColumnType("enum('Publicado','Asignado','En Proceso','Completado','Cancelado')");
-            entity.Property(e => e.StartDate).HasColumnType("timestamp");
+                ;
             entity.Property(e => e.Title).HasMaxLength(255);
             entity.Property(e => e.UpdatedAt)
                 .ValueGeneratedOnAddOrUpdate()
-                .HasDefaultValueSql("current_timestamp()")
-                .HasColumnType("timestamp");
+                .HasDefaultValueSql("CURRENT_TIMESTAMP")
+                ;
 
             entity.HasOne(d => d.AssignedFreelancer).WithMany(p => p.ProjectAssignedFreelancers)
                 .HasForeignKey(d => d.AssignedFreelancerId)
@@ -677,7 +588,7 @@ public partial class FreeLinkContext : DbContext
 
         modelBuilder.Entity<Projectactivitylog>(entity =>
         {
-            entity.HasKey(e => e.ActivityId).HasName("PRIMARY");
+            entity.HasKey(e => e.ActivityId);
 
             entity.ToTable("projectactivitylog");
 
@@ -685,14 +596,10 @@ public partial class FreeLinkContext : DbContext
 
             entity.HasIndex(e => new { e.ProjectId, e.CreatedAt }, "idx_project_date");
 
-            entity.Property(e => e.ActivityId).HasColumnType("int(11)");
-            entity.Property(e => e.ActivityDescription).HasColumnType("text");
             entity.Property(e => e.ActivityType).HasMaxLength(100);
             entity.Property(e => e.CreatedAt)
-                .HasDefaultValueSql("current_timestamp()")
-                .HasColumnType("timestamp");
-            entity.Property(e => e.ProjectId).HasColumnType("int(11)");
-            entity.Property(e => e.UserId).HasColumnType("int(11)");
+                .HasDefaultValueSql("CURRENT_TIMESTAMP")
+                ;
 
             entity.HasOne(d => d.Project).WithMany(p => p.Projectactivitylogs)
                 .HasForeignKey(d => d.ProjectId)
@@ -706,7 +613,7 @@ public partial class FreeLinkContext : DbContext
 
         modelBuilder.Entity<Projectapplication>(entity =>
         {
-            entity.HasKey(e => e.ApplicationId).HasName("PRIMARY");
+            entity.HasKey(e => e.ApplicationId);
 
             entity.ToTable("projectapplications");
 
@@ -718,19 +625,13 @@ public partial class FreeLinkContext : DbContext
 
             entity.HasIndex(e => new { e.ProjectId, e.FreelancerId }, "unique_application").IsUnique();
 
-            entity.Property(e => e.ApplicationId).HasColumnType("int(11)");
             entity.Property(e => e.ApplicationStatus)
                 .HasDefaultValueSql("'Pendiente'")
-                .HasColumnType("enum('Pendiente','Aceptada','Rechazada')");
+                ;
             entity.Property(e => e.AppliedAt)
-                .HasDefaultValueSql("current_timestamp()")
-                .HasColumnType("timestamp");
-            entity.Property(e => e.CoverLetter).HasColumnType("text");
-            entity.Property(e => e.EstimatedDuration).HasColumnType("int(11)");
-            entity.Property(e => e.FreelancerId).HasColumnType("int(11)");
-            entity.Property(e => e.ProjectId).HasColumnType("int(11)");
+                .HasDefaultValueSql("CURRENT_TIMESTAMP")
+                ;
             entity.Property(e => e.ProposedRate).HasPrecision(10, 2);
-            entity.Property(e => e.RespondedAt).HasColumnType("timestamp");
 
             entity.HasOne(d => d.Freelancer).WithMany(p => p.Projectapplications)
                 .HasForeignKey(d => d.FreelancerId)
@@ -743,21 +644,15 @@ public partial class FreeLinkContext : DbContext
 
         modelBuilder.Entity<Projectdeliverable>(entity =>
         {
-            entity.HasKey(e => e.DeliverableId).HasName("PRIMARY");
+            entity.HasKey(e => e.DeliverableId);
 
             entity.ToTable("projectdeliverables");
 
             entity.HasIndex(e => new { e.ProjectId, e.DeliverableStatus }, "idx_project_status");
 
-            entity.Property(e => e.DeliverableId).HasColumnType("int(11)");
             entity.Property(e => e.DeliverableStatus)
                 .HasDefaultValueSql("'Pendiente'")
-                .HasColumnType("enum('Pendiente','Enviado','En Revisión','Aprobado','Rechazado')");
-            entity.Property(e => e.Description).HasColumnType("text");
-            entity.Property(e => e.ProjectId).HasColumnType("int(11)");
-            entity.Property(e => e.ReviewComments).HasColumnType("text");
-            entity.Property(e => e.ReviewedAt).HasColumnType("timestamp");
-            entity.Property(e => e.SubmittedAt).HasColumnType("timestamp");
+                ;
             entity.Property(e => e.Title).HasMaxLength(255);
 
             entity.HasOne(d => d.Project).WithMany(p => p.Projectdeliverables)
@@ -767,7 +662,7 @@ public partial class FreeLinkContext : DbContext
 
         modelBuilder.Entity<Projectmessage>(entity =>
         {
-            entity.HasKey(e => e.MessageId).HasName("PRIMARY");
+            entity.HasKey(e => e.MessageId);
 
             entity.ToTable("projectmessages");
 
@@ -775,15 +670,10 @@ public partial class FreeLinkContext : DbContext
 
             entity.HasIndex(e => new { e.ProjectId, e.SentAt }, "idx_project_date");
 
-            entity.Property(e => e.MessageId).HasColumnType("int(11)");
             entity.Property(e => e.IsRead).HasDefaultValueSql("'0'");
-            entity.Property(e => e.MessageText).HasColumnType("text");
-            entity.Property(e => e.ProjectId).HasColumnType("int(11)");
-            entity.Property(e => e.ReadAt).HasColumnType("timestamp");
-            entity.Property(e => e.SenderId).HasColumnType("int(11)");
             entity.Property(e => e.SentAt)
-                .HasDefaultValueSql("current_timestamp()")
-                .HasColumnType("timestamp");
+                .HasDefaultValueSql("CURRENT_TIMESTAMP")
+                ;
 
             entity.HasOne(d => d.Project).WithMany(p => p.Projectmessages)
                 .HasForeignKey(d => d.ProjectId)
@@ -796,7 +686,7 @@ public partial class FreeLinkContext : DbContext
 
         modelBuilder.Entity<Projectskill>(entity =>
         {
-            entity.HasKey(e => e.ProjectSkillId).HasName("PRIMARY");
+            entity.HasKey(e => e.ProjectSkillId);
 
             entity.ToTable("projectskills");
 
@@ -804,9 +694,6 @@ public partial class FreeLinkContext : DbContext
 
             entity.HasIndex(e => new { e.ProjectId, e.SkillId }, "unique_project_skill").IsUnique();
 
-            entity.Property(e => e.ProjectSkillId).HasColumnType("int(11)");
-            entity.Property(e => e.ProjectId).HasColumnType("int(11)");
-            entity.Property(e => e.SkillId).HasColumnType("int(11)");
 
             entity.HasOne(d => d.Project).WithMany(p => p.Projectskills)
                 .HasForeignKey(d => d.ProjectId)
@@ -819,7 +706,7 @@ public partial class FreeLinkContext : DbContext
 
         modelBuilder.Entity<Proposal>(entity =>
         {
-            entity.HasKey(e => e.ProposalId).HasName("PRIMARY");
+            entity.HasKey(e => e.ProposalId);
 
             entity.ToTable("proposals");
 
@@ -827,23 +714,20 @@ public partial class FreeLinkContext : DbContext
 
             entity.HasIndex(e => new { e.ProjectId, e.VersionNumber }, "idx_project_version");
 
-            entity.Property(e => e.ProposalId).HasColumnType("int(11)");
             entity.Property(e => e.CreatedAt)
-                .HasDefaultValueSql("current_timestamp()")
-                .HasColumnType("timestamp");
-            entity.Property(e => e.FreelancerId).HasColumnType("int(11)");
-            entity.Property(e => e.ProjectId).HasColumnType("int(11)");
+                .HasDefaultValueSql("CURRENT_TIMESTAMP")
+                ;
             entity.Property(e => e.ProposalStatus)
                 .HasDefaultValueSql("'Enviada'")
-                .HasColumnType("enum('Borrador','Enviada','En Negociación','Aceptada','Rechazada')");
+                ;
             entity.Property(e => e.TotalCost).HasPrecision(12, 2);
             entity.Property(e => e.UpdatedAt)
                 .ValueGeneratedOnAddOrUpdate()
-                .HasDefaultValueSql("current_timestamp()")
-                .HasColumnType("timestamp");
+                .HasDefaultValueSql("CURRENT_TIMESTAMP")
+                ;
             entity.Property(e => e.VersionNumber)
                 .HasDefaultValueSql("'1'")
-                .HasColumnType("int(11)");
+                ;
 
             entity.HasOne(d => d.Freelancer).WithMany(p => p.Proposals)
                 .HasForeignKey(d => d.FreelancerId)
@@ -856,7 +740,7 @@ public partial class FreeLinkContext : DbContext
 
         modelBuilder.Entity<Proposalcomment>(entity =>
         {
-            entity.HasKey(e => e.CommentId).HasName("PRIMARY");
+            entity.HasKey(e => e.CommentId);
 
             entity.ToTable("proposalcomments");
 
@@ -864,13 +748,9 @@ public partial class FreeLinkContext : DbContext
 
             entity.HasIndex(e => new { e.ProposalId, e.CreatedAt }, "idx_proposal_date");
 
-            entity.Property(e => e.CommentId).HasColumnType("int(11)");
-            entity.Property(e => e.CommentText).HasColumnType("text");
             entity.Property(e => e.CreatedAt)
-                .HasDefaultValueSql("current_timestamp()")
-                .HasColumnType("timestamp");
-            entity.Property(e => e.ProposalId).HasColumnType("int(11)");
-            entity.Property(e => e.UserId).HasColumnType("int(11)");
+                .HasDefaultValueSql("CURRENT_TIMESTAMP")
+                ;
 
             entity.HasOne(d => d.Proposal).WithMany(p => p.Proposalcomments)
                 .HasForeignKey(d => d.ProposalId)
@@ -883,19 +763,17 @@ public partial class FreeLinkContext : DbContext
 
         modelBuilder.Entity<Proposalcostbreakdown>(entity =>
         {
-            entity.HasKey(e => e.CostItemId).HasName("PRIMARY");
+            entity.HasKey(e => e.CostItemId);
 
             entity.ToTable("proposalcostbreakdown");
 
             entity.HasIndex(e => e.ProposalId, "ProposalId");
 
-            entity.Property(e => e.CostItemId).HasColumnType("int(11)");
             entity.Property(e => e.Amount).HasPrecision(10, 2);
             entity.Property(e => e.ItemDescription).HasMaxLength(255);
             entity.Property(e => e.ItemOrder)
                 .HasDefaultValueSql("'0'")
-                .HasColumnType("int(11)");
-            entity.Property(e => e.ProposalId).HasColumnType("int(11)");
+                ;
 
             entity.HasOne(d => d.Proposal).WithMany(p => p.Proposalcostbreakdowns)
                 .HasForeignKey(d => d.ProposalId)
@@ -904,19 +782,16 @@ public partial class FreeLinkContext : DbContext
 
         modelBuilder.Entity<Proposaldeliverable>(entity =>
         {
-            entity.HasKey(e => e.DeliverableId).HasName("PRIMARY");
+            entity.HasKey(e => e.DeliverableId);
 
             entity.ToTable("proposaldeliverables");
 
             entity.HasIndex(e => e.ProposalId, "ProposalId");
 
-            entity.Property(e => e.DeliverableId).HasColumnType("int(11)");
             entity.Property(e => e.DeliverableName).HasMaxLength(255);
-            entity.Property(e => e.Description).HasColumnType("text");
             entity.Property(e => e.ItemOrder)
                 .HasDefaultValueSql("'0'")
-                .HasColumnType("int(11)");
-            entity.Property(e => e.ProposalId).HasColumnType("int(11)");
+                ;
 
             entity.HasOne(d => d.Proposal).WithMany(p => p.Proposaldeliverables)
                 .HasForeignKey(d => d.ProposalId)
@@ -925,20 +800,16 @@ public partial class FreeLinkContext : DbContext
 
         modelBuilder.Entity<Proposaltimeline>(entity =>
         {
-            entity.HasKey(e => e.TimelineId).HasName("PRIMARY");
+            entity.HasKey(e => e.TimelineId);
 
             entity.ToTable("proposaltimeline");
 
             entity.HasIndex(e => e.ProposalId, "ProposalId");
 
-            entity.Property(e => e.TimelineId).HasColumnType("int(11)");
-            entity.Property(e => e.Description).HasColumnType("text");
-            entity.Property(e => e.EstimatedDuration).HasColumnType("int(11)");
             entity.Property(e => e.ItemOrder)
                 .HasDefaultValueSql("'0'")
-                .HasColumnType("int(11)");
+                ;
             entity.Property(e => e.MilestoneName).HasMaxLength(255);
-            entity.Property(e => e.ProposalId).HasColumnType("int(11)");
 
             entity.HasOne(d => d.Proposal).WithMany(p => p.Proposaltimelines)
                 .HasForeignKey(d => d.ProposalId)
@@ -947,7 +818,7 @@ public partial class FreeLinkContext : DbContext
 
         modelBuilder.Entity<Review>(entity =>
         {
-            entity.HasKey(e => e.ReviewId).HasName("PRIMARY");
+            entity.HasKey(e => e.ReviewId);
 
             entity.ToTable("reviews");
 
@@ -959,20 +830,14 @@ public partial class FreeLinkContext : DbContext
 
             entity.HasIndex(e => new { e.ProjectId, e.ReviewerId, e.ReviewedUserId }, "unique_review").IsUnique();
 
-            entity.Property(e => e.ReviewId).HasColumnType("int(11)");
             entity.Property(e => e.CreatedAt)
-                .HasDefaultValueSql("current_timestamp()")
-                .HasColumnType("timestamp");
-            entity.Property(e => e.ProjectId).HasColumnType("int(11)");
+                .HasDefaultValueSql("CURRENT_TIMESTAMP")
+                ;
             entity.Property(e => e.Rating).HasPrecision(2, 1);
-            entity.Property(e => e.ReviewText).HasColumnType("text");
-            entity.Property(e => e.ReviewType).HasColumnType("enum('Cliente a Freelancer','Freelancer a Cliente')");
-            entity.Property(e => e.ReviewedUserId).HasColumnType("int(11)");
-            entity.Property(e => e.ReviewerId).HasColumnType("int(11)");
             entity.Property(e => e.UpdatedAt)
                 .ValueGeneratedOnAddOrUpdate()
-                .HasDefaultValueSql("current_timestamp()")
-                .HasColumnType("timestamp");
+                .HasDefaultValueSql("CURRENT_TIMESTAMP")
+                ;
 
             entity.HasOne(d => d.Project).WithMany(p => p.Reviews)
                 .HasForeignKey(d => d.ProjectId)
@@ -989,18 +854,15 @@ public partial class FreeLinkContext : DbContext
 
         modelBuilder.Entity<Reviewresponse>(entity =>
         {
-            entity.HasKey(e => e.ResponseId).HasName("PRIMARY");
+            entity.HasKey(e => e.ResponseId);
 
             entity.ToTable("reviewresponses");
 
             entity.HasIndex(e => e.ReviewId, "ReviewId").IsUnique();
 
-            entity.Property(e => e.ResponseId).HasColumnType("int(11)");
             entity.Property(e => e.CreatedAt)
-                .HasDefaultValueSql("current_timestamp()")
-                .HasColumnType("timestamp");
-            entity.Property(e => e.ResponseText).HasColumnType("text");
-            entity.Property(e => e.ReviewId).HasColumnType("int(11)");
+                .HasDefaultValueSql("CURRENT_TIMESTAMP")
+                ;
 
             entity.HasOne(d => d.Review).WithOne(p => p.Reviewresponse)
                 .HasForeignKey<Reviewresponse>(d => d.ReviewId)
@@ -1009,7 +871,7 @@ public partial class FreeLinkContext : DbContext
 
         modelBuilder.Entity<Skill>(entity =>
         {
-            entity.HasKey(e => e.SkillId).HasName("PRIMARY");
+            entity.HasKey(e => e.SkillId);
 
             entity.ToTable("skills");
 
@@ -1017,14 +879,13 @@ public partial class FreeLinkContext : DbContext
 
             entity.HasIndex(e => e.Category, "idx_category");
 
-            entity.Property(e => e.SkillId).HasColumnType("int(11)");
             entity.Property(e => e.Category).HasMaxLength(100);
             entity.Property(e => e.SkillName).HasMaxLength(100);
         });
 
         modelBuilder.Entity<Supportticket>(entity =>
         {
-            entity.HasKey(e => e.TicketId).HasName("PRIMARY");
+            entity.HasKey(e => e.TicketId);
 
             entity.ToTable("supporttickets");
 
@@ -1036,21 +897,16 @@ public partial class FreeLinkContext : DbContext
 
             entity.HasIndex(e => e.TicketStatus, "idx_status");
 
-            entity.Property(e => e.TicketId).HasColumnType("int(11)");
-            entity.Property(e => e.AssignedTo).HasColumnType("int(11)");
             entity.Property(e => e.CreatedAt)
-                .HasDefaultValueSql("current_timestamp()")
-                .HasColumnType("timestamp");
-            entity.Property(e => e.Description).HasColumnType("text");
+                .HasDefaultValueSql("CURRENT_TIMESTAMP")
+                ;
             entity.Property(e => e.Priority)
                 .HasDefaultValueSql("'Media'")
-                .HasColumnType("enum('Baja','Media','Alta','Urgente')");
-            entity.Property(e => e.ResolvedAt).HasColumnType("timestamp");
+                ;
             entity.Property(e => e.Subject).HasMaxLength(255);
             entity.Property(e => e.TicketStatus)
                 .HasDefaultValueSql("'Abierto'")
-                .HasColumnType("enum('Abierto','En Proceso','Esperando Respuesta','Resuelto','Cerrado')");
-            entity.Property(e => e.UserId).HasColumnType("int(11)");
+                ;
 
             entity.HasOne(d => d.AssignedToNavigation).WithMany(p => p.SupportticketAssignedToNavigations)
                 .HasForeignKey(d => d.AssignedTo)
@@ -1064,7 +920,7 @@ public partial class FreeLinkContext : DbContext
 
         modelBuilder.Entity<Systemsetting>(entity =>
         {
-            entity.HasKey(e => e.SettingId).HasName("PRIMARY");
+            entity.HasKey(e => e.SettingId);
 
             entity.ToTable("systemsettings");
 
@@ -1072,15 +928,11 @@ public partial class FreeLinkContext : DbContext
 
             entity.HasIndex(e => e.UpdatedBy, "UpdatedBy");
 
-            entity.Property(e => e.SettingId).HasColumnType("int(11)");
-            entity.Property(e => e.Description).HasColumnType("text");
             entity.Property(e => e.SettingKey).HasMaxLength(100);
-            entity.Property(e => e.SettingValue).HasColumnType("text");
             entity.Property(e => e.UpdatedAt)
                 .ValueGeneratedOnAddOrUpdate()
-                .HasDefaultValueSql("current_timestamp()")
-                .HasColumnType("timestamp");
-            entity.Property(e => e.UpdatedBy).HasColumnType("int(11)");
+                .HasDefaultValueSql("CURRENT_TIMESTAMP")
+                ;
 
             entity.HasOne(d => d.UpdatedByNavigation).WithMany(p => p.Systemsettings)
                 .HasForeignKey(d => d.UpdatedBy)
@@ -1090,7 +942,7 @@ public partial class FreeLinkContext : DbContext
 
         modelBuilder.Entity<Ticketresponse>(entity =>
         {
-            entity.HasKey(e => e.ResponseId).HasName("PRIMARY");
+            entity.HasKey(e => e.ResponseId);
 
             entity.ToTable("ticketresponses");
 
@@ -1098,14 +950,10 @@ public partial class FreeLinkContext : DbContext
 
             entity.HasIndex(e => e.TicketId, "TicketId");
 
-            entity.Property(e => e.ResponseId).HasColumnType("int(11)");
             entity.Property(e => e.CreatedAt)
-                .HasDefaultValueSql("current_timestamp()")
-                .HasColumnType("timestamp");
+                .HasDefaultValueSql("CURRENT_TIMESTAMP")
+                ;
             entity.Property(e => e.IsStaffResponse).HasDefaultValueSql("'0'");
-            entity.Property(e => e.ResponderId).HasColumnType("int(11)");
-            entity.Property(e => e.ResponseText).HasColumnType("text");
-            entity.Property(e => e.TicketId).HasColumnType("int(11)");
 
             entity.HasOne(d => d.Responder).WithMany(p => p.Ticketresponses)
                 .HasForeignKey(d => d.ResponderId)
@@ -1118,7 +966,7 @@ public partial class FreeLinkContext : DbContext
 
         modelBuilder.Entity<Transaction>(entity =>
         {
-            entity.HasKey(e => e.TransactionId).HasName("PRIMARY");
+            entity.HasKey(e => e.TransactionId);
 
             entity.ToTable("transactions");
 
@@ -1132,21 +980,14 @@ public partial class FreeLinkContext : DbContext
 
             entity.HasIndex(e => new { e.TransactionType, e.TransactionStatus }, "idx_type_status");
 
-            entity.Property(e => e.TransactionId).HasColumnType("int(11)");
             entity.Property(e => e.Amount).HasPrecision(12, 2);
-            entity.Property(e => e.CompletedAt).HasColumnType("timestamp");
             entity.Property(e => e.CreatedAt)
-                .HasDefaultValueSql("current_timestamp()")
-                .HasColumnType("timestamp");
-            entity.Property(e => e.Description).HasColumnType("text");
-            entity.Property(e => e.EscrowId).HasColumnType("int(11)");
-            entity.Property(e => e.FromUserId).HasColumnType("int(11)");
+                .HasDefaultValueSql("CURRENT_TIMESTAMP")
+                ;
             entity.Property(e => e.ReceiptUrl).HasMaxLength(500);
-            entity.Property(e => e.ToUserId).HasColumnType("int(11)");
             entity.Property(e => e.TransactionStatus)
                 .HasDefaultValueSql("'Pendiente'")
-                .HasColumnType("enum('Pendiente','Completada','Fallida','Cancelada')");
-            entity.Property(e => e.TransactionType).HasColumnType("enum('Depósito','Liberación','Reembolso','Comisión','Retiro')");
+                ;
 
             entity.HasOne(d => d.Escrow).WithMany(p => p.Transactions)
                 .HasForeignKey(d => d.EscrowId)
@@ -1166,7 +1007,7 @@ public partial class FreeLinkContext : DbContext
 
         modelBuilder.Entity<User>(entity =>
         {
-            entity.HasKey(e => e.UserId).HasName("PRIMARY");
+            entity.HasKey(e => e.UserId);
 
             entity.ToTable("users");
 
@@ -1174,38 +1015,32 @@ public partial class FreeLinkContext : DbContext
 
             entity.HasIndex(e => e.UserType, "idx_user_type");
 
-            entity.Property(e => e.UserId).HasColumnType("int(11)");
             entity.Property(e => e.CreatedAt)
-                .HasDefaultValueSql("current_timestamp()")
-                .HasColumnType("timestamp");
+                .HasDefaultValueSql("CURRENT_TIMESTAMP")
+                ;
             entity.Property(e => e.IsActive).HasDefaultValueSql("'1'");
             entity.Property(e => e.IsVerified).HasDefaultValueSql("'0'");
-            entity.Property(e => e.LastLoginAt).HasColumnType("timestamp");
             entity.Property(e => e.PasswordHash).HasMaxLength(255);
             entity.Property(e => e.UpdatedAt)
                 .ValueGeneratedOnAddOrUpdate()
-                .HasDefaultValueSql("current_timestamp()")
-                .HasColumnType("timestamp");
-            entity.Property(e => e.UserType).HasColumnType("enum('Cliente','Freelancer','Administrador')");
+                .HasDefaultValueSql("CURRENT_TIMESTAMP")
+                ;
         });
 
         modelBuilder.Entity<Userprofile>(entity =>
         {
-            entity.HasKey(e => e.ProfileId).HasName("PRIMARY");
+            entity.HasKey(e => e.ProfileId);
 
             entity.ToTable("userprofiles");
 
             entity.HasIndex(e => e.UserId, "UserId").IsUnique();
 
-            entity.Property(e => e.ProfileId).HasColumnType("int(11)");
-            entity.Property(e => e.Bio).HasColumnType("text");
             entity.Property(e => e.City).HasMaxLength(100);
             entity.Property(e => e.Country).HasMaxLength(100);
             entity.Property(e => e.FirstName).HasMaxLength(100);
             entity.Property(e => e.LastName).HasMaxLength(100);
             entity.Property(e => e.PhoneNumber).HasMaxLength(20);
             entity.Property(e => e.ProfilePicture).HasMaxLength(255);
-            entity.Property(e => e.UserId).HasColumnType("int(11)");
 
             entity.HasOne(d => d.User).WithOne(p => p.Userprofile)
                 .HasForeignKey<Userprofile>(d => d.UserId)
@@ -1214,7 +1049,7 @@ public partial class FreeLinkContext : DbContext
 
         modelBuilder.Entity<Usersanction>(entity =>
         {
-            entity.HasKey(e => e.SanctionId).HasName("PRIMARY");
+            entity.HasKey(e => e.SanctionId);
 
             entity.ToTable("usersanctions");
 
@@ -1222,16 +1057,10 @@ public partial class FreeLinkContext : DbContext
 
             entity.HasIndex(e => new { e.UserId, e.IsActive }, "idx_user_active");
 
-            entity.Property(e => e.SanctionId).HasColumnType("int(11)");
-            entity.Property(e => e.AppliedBy).HasColumnType("int(11)");
-            entity.Property(e => e.EndDate).HasColumnType("timestamp");
             entity.Property(e => e.IsActive).HasDefaultValueSql("'1'");
-            entity.Property(e => e.Reason).HasColumnType("text");
-            entity.Property(e => e.SanctionType).HasColumnType("enum('Advertencia','Suspensión Temporal','Baneo Permanente')");
             entity.Property(e => e.StartDate)
-                .HasDefaultValueSql("current_timestamp()")
-                .HasColumnType("timestamp");
-            entity.Property(e => e.UserId).HasColumnType("int(11)");
+                .HasDefaultValueSql("CURRENT_TIMESTAMP")
+                ;
 
             entity.HasOne(d => d.AppliedByNavigation).WithMany(p => p.UsersanctionAppliedByNavigations)
                 .HasForeignKey(d => d.AppliedBy)
@@ -1244,13 +1073,12 @@ public partial class FreeLinkContext : DbContext
 
         modelBuilder.Entity<Userwallet>(entity =>
         {
-            entity.HasKey(e => e.WalletId).HasName("PRIMARY");
+            entity.HasKey(e => e.WalletId);
 
             entity.ToTable("userwallets");
 
             entity.HasIndex(e => e.UserId, "UserId").IsUnique();
 
-            entity.Property(e => e.WalletId).HasColumnType("int(11)");
             entity.Property(e => e.Balance)
                 .HasPrecision(12, 2)
                 .HasDefaultValueSql("'0.00'");
@@ -1265,9 +1093,8 @@ public partial class FreeLinkContext : DbContext
                 .HasDefaultValueSql("'0.00'");
             entity.Property(e => e.UpdatedAt)
                 .ValueGeneratedOnAddOrUpdate()
-                .HasDefaultValueSql("current_timestamp()")
-                .HasColumnType("timestamp");
-            entity.Property(e => e.UserId).HasColumnType("int(11)");
+                .HasDefaultValueSql("CURRENT_TIMESTAMP")
+                ;
 
             entity.HasOne(d => d.User).WithOne(p => p.Userwallet)
                 .HasForeignKey<Userwallet>(d => d.UserId)
@@ -1276,18 +1103,15 @@ public partial class FreeLinkContext : DbContext
 
         modelBuilder.Entity<Workexperience>(entity =>
         {
-            entity.HasKey(e => e.ExperienceId).HasName("PRIMARY");
+            entity.HasKey(e => e.ExperienceId);
 
             entity.ToTable("workexperience");
 
             entity.HasIndex(e => new { e.UserId, e.IsCurrent }, "idx_user_current");
 
-            entity.Property(e => e.ExperienceId).HasColumnType("int(11)");
             entity.Property(e => e.Company).HasMaxLength(255);
-            entity.Property(e => e.Description).HasColumnType("text");
             entity.Property(e => e.IsCurrent).HasDefaultValueSql("'0'");
             entity.Property(e => e.JobTitle).HasMaxLength(255);
-            entity.Property(e => e.UserId).HasColumnType("int(11)");
 
             entity.HasOne(d => d.User).WithMany(p => p.Workexperiences)
                 .HasForeignKey(d => d.UserId)

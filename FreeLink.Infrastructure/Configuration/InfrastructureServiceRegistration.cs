@@ -14,11 +14,11 @@ public static class InfrastructureServiceRegistration
         this IServiceCollection services, 
         IConfiguration configuration)
     {
-        // Registrar DbContext con MySQL
+        // Registrar DbContext con PostgreSQL
         services.AddDbContext<FreeLinkContext>(options =>
         {
             var connectionString = configuration.GetConnectionString("DefaultConnection");
-            options.UseMySql(connectionString, ServerVersion.AutoDetect(connectionString));
+            options.UseNpgsql(connectionString);
         });
         
         // Registrar patr n Repository y UnitOfWork
