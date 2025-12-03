@@ -29,7 +29,7 @@ public static class InfrastructureServiceRegistration
         services.AddScoped<IJwtTokenGenerator, JwtTokenGenerator>();
         services.AddScoped<IFileService, FileService>();
         services.AddScoped<INotificationService, NotificationService>();
-        
+        services.AddScoped<IWalletService, WalletService>();
 
         // ? Supabase Storage Service
         services.AddScoped<ISupabaseStorageService, SupabaseStorageService>();
