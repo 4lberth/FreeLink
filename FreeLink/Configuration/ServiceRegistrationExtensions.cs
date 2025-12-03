@@ -59,8 +59,9 @@ public static class ServiceRegistrationExtensions
             });
             
             // Configurar soporte para file uploads
+            c.ParameterFilter<SwaggerFileUploadParameterFilter>();
             c.OperationFilter<SwaggerFileOperationFilter>();
-            
+
             c.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
             {
                 Description = "JWT Authorization header using the Bearer scheme. Ejemplo: 'Bearer {token}'",
