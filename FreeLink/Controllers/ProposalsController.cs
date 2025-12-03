@@ -30,6 +30,7 @@ public class ProposalsController : ControllerBase
 
     /// Crear nueva propuesta
     [HttpPost]
+    [Authorize(Policy = "Freelancer")]
     public async Task<IActionResult> CreateProposal([FromBody] CreateProposalRequest request)
     {
         var userIdClaim = User.Claims.FirstOrDefault(c =>
@@ -125,6 +126,7 @@ public class ProposalsController : ControllerBase
 
     /// Aceptar propuesta (solo cliente)
     [HttpPost("{id}/accept")]
+    [Authorize(Policy = "Cliente")]
     public async Task<IActionResult> AcceptProposal(int id)
     {
         var userIdClaim = User.Claims.FirstOrDefault(c =>
@@ -153,6 +155,7 @@ public class ProposalsController : ControllerBase
 
     /// Solicitar cambios en propuesta (solo cliente)
     [HttpPost("{id}/request-changes")]
+    [Authorize(Policy = "Cliente")]
     public async Task<IActionResult> RequestChanges(int id, [FromBody] RequestChangesRequest request)
     {
         var userIdClaim = User.Claims.FirstOrDefault(c =>
@@ -182,6 +185,7 @@ public class ProposalsController : ControllerBase
 
     /// Rechazar propuesta (solo cliente)
     [HttpPost("{id}/reject")]
+    [Authorize(Policy = "Cliente")]
     public async Task<IActionResult> RejectProposal(int id, [FromBody] RejectProposalRequest? request = null)
     {
         var userIdClaim = User.Claims.FirstOrDefault(c =>
@@ -263,6 +267,7 @@ public class ProposalsController : ControllerBase
 
     /// Crear nueva versión de propuesta (solo freelancer)
     [HttpPost("projects/{projectId}/new-version")]
+    [Authorize(Policy = "Freelancer")]
     public async Task<IActionResult> CreateNewVersion(int projectId, [FromBody] CreateNewVersionRequest request)
     {
         var userIdClaim = User.Claims.FirstOrDefault(c =>

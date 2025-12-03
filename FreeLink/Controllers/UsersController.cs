@@ -1,7 +1,9 @@
 ﻿using System.Security.Claims;
 using FreeLink.Application.UseCase.User.Commands.ChangePassword;
+using FreeLink.Application.UseCase.User.Commands.SubmitIdentityVerification;
 using FreeLink.Application.UseCase.User.Commands.UpdateUser;
 using FreeLink.Application.UseCase.User.Commands.UpdateUserProfile;
+using FreeLink.Application.UseCase.User.Commands.UploadProfilePicture;
 using FreeLink.Application.UseCase.User.DTOs;
 using FreeLink.Application.UseCase.User.Queries.GetAllUsers;
 using FreeLink.Application.UseCase.User.Queries.GetUserById;
@@ -199,6 +201,89 @@ public class UsersController : ControllerBase
             ConfirmNewPassword = request.ConfirmNewPassword,
             RequestingUserId = int.Parse(requestingUserId),
             RequestingUserRole = requestingUserRole ?? string.Empty
+        };
+
+        var response = await _mediator.Send(command);
+
+        if (!response.Success)
+        {
+            return BadRequest(response);
+        }
+
+        return Ok(response);
+    }
+
+    /// Solicitar verificación de identidad - Sube documentos a Supabase bucket privado
+    [HttpPost("{id}/verification")]
+    [Consumes("multipart/form-data")]
+    public async Task<IActionResult> SubmitIdentityVerification(
+        int id,
+        [FromForm] SubmitIdentityVerificationRequest request)
+    {
+        // Obtener datos del usuario autenticado desde el token
+        var requestingUserId = User.Claims.FirstOrDefault(c =>
+            c.Type == "userId" || c.Type == ClaimTypes.NameIdentifier)?.Value;
+
+        if (string.IsNullOrEmpty(requestingUserId))
+        {
+            return Unauthorized(new { success = false, message = "Token inválido" });
+        }
+
+        // Verificar que el usuario solo pueda solicitar su propia verificación
+        if (int.Parse(requestingUserId) != id)
+        {
+            return Forbid();
+        }
+
+        var command = new SubmitIdentityVerificationCommand
+        {
+            UserId = id,
+            DocumentType = request.DocumentType,
+            DocumentNumber = request.DocumentNumber,
+            DocumentFront = request.DocumentFront,
+            DocumentBack = request.DocumentBack,
+            Selfie = request.Selfie
+        };
+
+        var response = await _mediator.Send(command);
+
+        if (!response.Success)
+        {
+            return BadRequest(response);
+        }
+
+        return Ok(response);
+    }
+
+    /// Subir foto de perfil - Sube imagen a Supabase bucket público "profiles"
+    [HttpPost("{id}/profile-picture")]
+    [Consumes("multipart/form-data")]
+    public async Task<IActionResult> UploadProfilePicture(
+        int id,
+        [FromForm] UploadProfilePictureRequest request)
+    {
+        // Obtener datos del usuario autenticado desde el token
+        var requestingUserId = User.Claims.FirstOrDefault(c =>
+            c.Type == "userId" || c.Type == ClaimTypes.NameIdentifier)?.Value;
+
+        var requestingUserRole = User.Claims.FirstOrDefault(c =>
+            c.Type == "userType" || c.Type == ClaimTypes.Role)?.Value;
+
+        if (string.IsNullOrEmpty(requestingUserId))
+        {
+            return Unauthorized(new { success = false, message = "Token inválido" });
+        }
+
+        // Verificar que el usuario solo pueda subir su propia foto, EXCEPTO si es Administrador
+        if (requestingUserRole != "Administrador" && int.Parse(requestingUserId) != id)
+        {
+            return Forbid();
+        }
+
+        var command = new UploadProfilePictureCommand
+        {
+            UserId = id,
+            File = request.File
         };
 
         var response = await _mediator.Send(command);

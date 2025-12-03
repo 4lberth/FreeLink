@@ -3,6 +3,7 @@ using FreeLink.Application.UseCase.Projects.Commands.UpdateProject;
 using FreeLink.Application.UseCase.Projects.Commands.DeleteProject;
 using FreeLink.Application.UseCase.Projects.DTOs;
 using FreeLink.Application.UseCase.Projects.Queries.GetProjectById;
+using FreeLink.Application.UseCase.Projects.Queries.GetProjectDashboard;
 using MediatR;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
@@ -29,7 +30,7 @@ public class ProjectsController : ControllerBase
 
     /// Crear un nuevo proyecto (solo clientes)
     [HttpPost]
-    [Authorize]
+    [Authorize(Policy = "Cliente")]
     public async Task<IActionResult> CreateProject([FromBody] CreateProjectRequest request)
     {
         var userId = GetCurrentUserId();
@@ -83,7 +84,7 @@ public class ProjectsController : ControllerBase
 
     /// Actualizar un proyecto existente (solo cliente dueño)
     [HttpPut("{id}")]
-    [Authorize]
+    [Authorize(Policy = "Cliente")]
     public async Task<IActionResult> UpdateProject(int id, [FromBody] UpdateProjectRequest request)
     {
         var userId = GetCurrentUserId();
@@ -115,7 +116,7 @@ public class ProjectsController : ControllerBase
 
     /// Cancelar un proyecto (soft delete - solo cliente dueño)
     [HttpDelete("{id}")]
-    [Authorize]
+    [Authorize(Policy = "Cliente")]
     public async Task<IActionResult> DeleteProject(int id)
     {
         var userId = GetCurrentUserId();
@@ -164,7 +165,7 @@ public class ProjectsController : ControllerBase
 
     /// Iniciar un proyecto (cambiar estado a "En Proceso")
     [HttpPost("{id}/start")]
-    [Authorize]
+    [Authorize(Policy = "Cliente")]
     public async Task<IActionResult> StartProject(int id)
     {
         var userId = GetCurrentUserId();
@@ -191,7 +192,7 @@ public class ProjectsController : ControllerBase
 
     /// Completar un proyecto (cambiar estado a "Completado")
     [HttpPost("{id}/complete")]
-    [Authorize]
+    [Authorize(Policy = "Cliente")]
     public async Task<IActionResult> CompleteProject(int id)
     {
         var userId = GetCurrentUserId();
@@ -250,6 +251,33 @@ public class ProjectsController : ControllerBase
         var query = new FreeLink.Application.UseCase.ActivityLogs.Queries.GetProjectActivityLog.GetProjectActivityLogQuery
         {
             ProjectId = id
+        };
+
+        var response = await _mediator.Send(query);
+
+        if (!response.Success)
+        {
+            return BadRequest(response);
+        }
+
+        return Ok(response);
+    }
+
+    /// Obtener dashboard del proyecto con progreso, entregables, mensajes y actividad reciente
+    [HttpGet("{id}/dashboard")]
+    [Authorize]
+    public async Task<IActionResult> GetProjectDashboard(int id)
+    {
+        var userId = GetCurrentUserId();
+        if (userId == 0)
+        {
+            return Unauthorized(new { message = "Usuario no autenticado" });
+        }
+
+        var query = new GetProjectDashboardQuery
+        {
+            ProjectId = id,
+            RequestingUserId = userId
         };
 
         var response = await _mediator.Send(query);

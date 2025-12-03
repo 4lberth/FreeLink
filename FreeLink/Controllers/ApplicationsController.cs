@@ -29,7 +29,7 @@ public class ApplicationsController : ControllerBase
 
     /// Postularse a un proyecto (solo freelancers)
     [HttpPost("projects/{projectId}/applications")]
-    [Authorize]
+    [Authorize(Policy = "Freelancer")]
     public async Task<IActionResult> CreateApplication(int projectId, [FromBody] CreateApplicationRequest request)
     {
         var userId = GetCurrentUserId();
@@ -60,7 +60,7 @@ public class ApplicationsController : ControllerBase
 
     /// Ver todas las aplicaciones de un proyecto (solo cliente dueño)
     [HttpGet("projects/{projectId}/applications")]
-    [Authorize]
+    [Authorize(Policy = "Cliente")]
     public async Task<IActionResult> GetProjectApplications(int projectId)
     {
         var userId = GetCurrentUserId();
@@ -87,7 +87,7 @@ public class ApplicationsController : ControllerBase
 
     /// Aceptar una aplicación (solo cliente dueño del proyecto)
     [HttpPost("applications/{id}/accept")]
-    [Authorize]
+    [Authorize(Policy = "Cliente")]
     public async Task<IActionResult> AcceptApplication(int id)
     {
         var userId = GetCurrentUserId();
@@ -114,7 +114,7 @@ public class ApplicationsController : ControllerBase
 
     /// Rechazar una aplicación (solo cliente dueño del proyecto)
     [HttpPost("applications/{id}/reject")]
-    [Authorize]
+    [Authorize(Policy = "Cliente")]
     public async Task<IActionResult> RejectApplication(int id)
     {
         var userId = GetCurrentUserId();
